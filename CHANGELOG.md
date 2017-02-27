@@ -1,3 +1,13 @@
+# Version 1.0.0-alpha3
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Implementation of EE category import functionality
+
 # Version 1.0.0-alpha2
 
 ## Bugfixes

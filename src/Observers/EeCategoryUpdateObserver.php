@@ -21,11 +21,12 @@
 namespace TechDivision\Import\Category\Ee\Observers;
 
 use TechDivision\Import\Utils\EntityStatus;
-use TechDivision\Import\Category\Utils\MemberNames;
+use TechDivision\Import\Category\Utils\ColumnKeys;
+use TechDivision\Import\Category\Ee\Utils\MemberNames;
 use TechDivision\Import\Category\Observers\CategoryUpdateObserver;
 
 /**
- * Observer that create's the category itself for the Magento 2 EE edition.
+ * Observer that create/update the category itself for the Magento 2 EE edition.
  *
  * @author    Tim Wagner <t.wagner@techdivision.com>
  * @copyright 2016 TechDivision GmbH <info@techdivision.com>
@@ -37,20 +38,11 @@ class EeCategoryUpdateObserver extends CategoryUpdateObserver
 {
 
     /**
-     * Process the observer's business logic.
+     * The trait providing category import functionality.
      *
-     * @return array The processed row
+     * @var \TechDivision\Import\Category\Ee\Observers\EeCategoryObserverTrait
      */
-    protected function process()
-    {
-
-        // prepare the static entity values
-        $product = $this->initializeProduct($this->prepareAttributes());
-
-        // insert the entity and set the entity ID, SKU and attribute set
-        $this->setLastRowId($this->persistProduct($product));
-        $this->setLastEntityId($product[MemberNames::ENTITY_ID]);
-    }
+    use EeCategoryObserverTrait;
 
     /**
      * Initialize the product with the passed attributes and returns an instance.
@@ -59,13 +51,13 @@ class EeCategoryUpdateObserver extends CategoryUpdateObserver
      *
      * @return array The initialized category
      */
-    protected function initializeProduct(array $attr)
+    protected function initializeCategory(array $attr)
     {
 
         // initialize the category attributes
         $attr = parent::initializeCategory($attr);
 
-        // query whether or not, we found a new product
+        // query whether or not, we found a new category
         if ($attr[EntityStatus::MEMBER_NAME] === EntityStatus::STATUS_CREATE) {
             // if yes, initialize the additional Magento 2 EE category values
             $additionalAttr = array(
@@ -80,27 +72,5 @@ class EeCategoryUpdateObserver extends CategoryUpdateObserver
 
         // otherwise simply return the attributes
         return $attr;
-    }
-
-    /**
-     * Set's the row ID of the category that has been created recently.
-     *
-     * @param string $rowId The row ID
-     *
-     * @return void
-     */
-    protected function setLastRowId($rowId)
-    {
-        $this->getSubject()->setLastRowId($rowId);
-    }
-
-    /**
-     * Return's the next available category entity ID.
-     *
-     * @return integer The next available category entity ID
-     */
-    protected function nextIdentifier()
-    {
-        return $this->getSubject()->nextIdentifier();
     }
 }
