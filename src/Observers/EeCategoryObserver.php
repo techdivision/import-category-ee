@@ -18,10 +18,9 @@
  * @link      http://www.techdivision.com
  */
 
-namespace TechDivision\Import\Product\Ee\Observers;
+namespace TechDivision\Import\Category\Ee\Observers;
 
-use TechDivision\Import\Category\Utils\MemberNames;
-use TechDivision\Import\Category\Observers\CategoryObserver;
+use TechDivision\Import\Category\Ee\Utils\MemberNames;
 
 /**
  * Observer that create's the category itself for the Magento 2 EE edition.
@@ -36,20 +35,11 @@ class EeCategoryObserver extends CategoryObserver
 {
 
     /**
-     * Process the observer's business logic.
+     * The trait providing category import functionality.
      *
-     * @return array The processed row
+     * @var \TechDivision\Import\Category\Ee\Observers\EeCategoryObserverTrait
      */
-    protected function process()
-    {
-
-        // prepare the static entity values
-        $category = $this->initializeProduct($this->prepareAttributes());
-
-        // persist the entity and set the entity ID
-        $this->setLastRowId($this->persistCategory($category));
-        $this->setLastEntityId($category[MemberNames::ENTITY_ID]);
-    }
+    use EeCategoryObserverTrait;
 
     /**
      * Initialize the category with the passed attributes and returns an instance.
@@ -70,27 +60,5 @@ class EeCategoryObserver extends CategoryObserver
 
         // merge and return the attributes
         return array_merge($attr, $additionalAttr);
-    }
-
-    /**
-     * Set's the row ID of the category that has been created recently.
-     *
-     * @param string $rowId The row ID
-     *
-     * @return void
-     */
-    protected function setLastRowId($rowId)
-    {
-        $this->getSubject()->setLastRowId($rowId);
-    }
-
-    /**
-     * Return's the next available category entity ID.
-     *
-     * @return integer The next available category entity ID
-     */
-    protected function nextIdentifier()
-    {
-        return $this->getSubject()->nextIdentifier();
     }
 }

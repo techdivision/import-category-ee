@@ -105,7 +105,7 @@ class EeBunchSubject extends BunchSubject
     /**
      * Add the passed path => row ID mapping.
      *
-     * @param string $path The SKU
+     * @param string $path The path
      *
      * @return void
      */
