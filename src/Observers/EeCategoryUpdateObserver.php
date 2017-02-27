@@ -21,7 +21,7 @@
 namespace TechDivision\Import\Category\Ee\Observers;
 
 use TechDivision\Import\Utils\EntityStatus;
-use TechDivision\Import\Category\Ee\Utils\MemberNames;
+use TechDivision\Import\Category\Utils\MemberNames;
 use TechDivision\Import\Category\Observers\CategoryUpdateObserver;
 
 /**
