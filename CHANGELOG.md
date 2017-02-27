@@ -1,3 +1,13 @@
+# Version 1.0.0-alpha2
+
+## Bugfixes
+
+* Fixed invald PSR-4 namespace in composer.json
+
+## Features
+
+* None
+
 # Version 1.0.0-alpha1
 
 ## Bugfixes

@@ -24,7 +24,7 @@
 	],
 	"autoload" : {
 		"psr-4" : {
-			"TechDivision\\Import\\Product\\Ee\\" : [
+			"TechDivision\\Import\\Category\\Ee\\" : [
 				"src/",
 				"tests/"
 			]
