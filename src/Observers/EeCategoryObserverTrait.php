@@ -75,6 +75,7 @@ trait EeCategoryObserverTrait
 
             //update the persisted category with the entity ID
             $category[MemberNames::ROW_ID] = $rowId;
+            $category[MemberNames::URL_KEY] = $this->getValue(ColumnKeys::URL_KEY);
 
             // append the category to the list
             $this->addCategory($path, $category);
