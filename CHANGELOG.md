@@ -1,3 +1,13 @@
+# Version 1.0.0-alpha4
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Refactoring to create Magento 2 conform category URL rewrites
+
 # Version 1.0.0-alpha3
 
 ## Bugfixes
