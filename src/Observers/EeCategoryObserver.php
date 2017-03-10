@@ -21,6 +21,7 @@
 namespace TechDivision\Import\Category\Ee\Observers;
 
 use TechDivision\Import\Category\Ee\Utils\MemberNames;
+use TechDivision\Import\Category\Observers\CategoryObserver;
 
 /**
  * Observer that create's the category itself for the Magento 2 EE edition.

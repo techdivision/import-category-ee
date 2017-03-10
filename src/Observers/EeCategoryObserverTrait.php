@@ -70,6 +70,7 @@ trait EeCategoryObserverTrait
 
             // prepare the static entity values, insert the entity and set the entity ID
             $category = $this->initializeCategory($this->prepareAttributes());
+
             $this->setLastEntityId($entityId = $category[MemberNames::ENTITY_ID]);
             $this->setLastRowId($rowId = $this->persistCategory($category));
 
