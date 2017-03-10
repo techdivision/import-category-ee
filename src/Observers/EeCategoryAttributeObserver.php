@@ -18,7 +18,7 @@
  * @link      http://www.techdivision.com
  */
 
-namespace TechDivision\Import\Product\Ee\Observers;
+namespace TechDivision\Import\Category\Ee\Observers;
 
 use TechDivision\Import\Category\Observers\CategoryAttributeObserver;
 

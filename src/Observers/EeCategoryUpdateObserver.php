@@ -21,7 +21,6 @@
 namespace TechDivision\Import\Category\Ee\Observers;
 
 use TechDivision\Import\Utils\EntityStatus;
-use TechDivision\Import\Category\Utils\ColumnKeys;
 use TechDivision\Import\Category\Ee\Utils\MemberNames;
 use TechDivision\Import\Category\Observers\CategoryUpdateObserver;
 
@@ -72,5 +71,17 @@ class EeCategoryUpdateObserver extends CategoryUpdateObserver
 
         // otherwise simply return the attributes
         return $attr;
+    }
+
+    /**
+     * Return's the primary key of the category.
+     *
+     * @param array $category The category
+     *
+     * @return integer The primary key
+     */
+    protected function getPrimaryKey($category)
+    {
+        return $category[MemberNames::ROW_ID];
     }
 }
