@@ -1,3 +1,13 @@
+# Version 1.0.0-alpha6
+
+## Bugfixes
+
+* Add missing type hint for EeChildrenCountPlugin::getPrimaryKey() method
+
+## Features
+
+* None
+
 # Version 1.0.0-alpha5
 
 ## Bugfixes
