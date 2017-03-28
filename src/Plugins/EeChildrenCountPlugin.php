@@ -43,7 +43,7 @@ class EeChildrenCountPlugin extends ChildrenCountPlugin
      *
      * @return integer The primary key of the category
      */
-    protected function getPrimaryKey($category)
+    protected function getPrimaryKey(array $category)
     {
         return $category[MemberNames::ROW_ID];
     }
