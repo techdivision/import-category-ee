@@ -1,3 +1,13 @@
+# Version 1.0.0-alpha8
+
+## Bugfixes
+
+* Fixed invalid constructor of EeCategoryBunchProcessor
+
+## Features
+
+* None
+
 # Version 1.0.0-alpha7
 
 ## Bugfixes

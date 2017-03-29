@@ -1,7 +1,7 @@
 <?php
 
 /**
- * TechDivision\Import\Category\Ee\Repositories\ProductVarcharRepository
+ * TechDivision\Import\Category\Ee\Repositories\CategoryVarcharRepository
  *
  * NOTICE OF LICENSE
  *
@@ -21,7 +21,6 @@
 namespace TechDivision\Import\Category\Ee\Repositories;
 
 use TechDivision\Import\Category\Ee\Utils\MemberNames;
-use TechDivision\Import\Repositories\AbstractRepository;
 
 /**
  * Repository implementation to load category varchar attribute data.
@@ -32,7 +31,7 @@ use TechDivision\Import\Repositories\AbstractRepository;
  * @link      https://github.com/techdivision/import-category-ee
  * @link      http://www.techdivision.com
  */
-class CategoryVarcharRepository extends AbstractRepository
+class CategoryVarcharRepository extends \TechDivision\Import\Category\Repositories\CategoryVarcharRepository
 {
 
     /**
