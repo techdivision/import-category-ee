@@ -21,6 +21,13 @@
 namespace TechDivision\Import\Category\Ee\Services;
 
 use TechDivision\Import\Category\Services\CategoryBunchProcessor;
+use TechDivision\Import\Category\Ee\Actions\SequenceCategoryAction;
+use TechDivision\Import\Category\Ee\Repositories\CategoryRepository;
+use TechDivision\Import\Category\Ee\Repositories\CategoryDatetimeRepository;
+use TechDivision\Import\Category\Ee\Repositories\CategoryDecimalRepository;
+use TechDivision\Import\Category\Ee\Repositories\CategoryIntRepository;
+use TechDivision\Import\Category\Ee\Repositories\CategoryTextRepository;
+use TechDivision\Import\Category\Ee\Repositories\CategoryVarcharRepository;
 
 /**
  * A processor implementation providing methods to load sequence category data using a PDO connection.
@@ -40,6 +47,72 @@ class EeCategoryBunchProcessor extends CategoryBunchProcessor implements EeCateg
      * @var \TechDivision\Import\Category\Ee\Actions\SequenceCategoryAction
      */
     protected $sequenceCategoryAction;
+
+    /**
+     * Initialize the processor with the necessary assembler and repository instances.
+     *
+     * @param \PDO                                                                     $connection                 The PDO connection to use
+     * @param \TechDivision\Import\Category\Ee\Actions\SequenceCategoryAction          $sequenceCategoryAction     The sequence category action to use
+     * @param \TechDivision\Import\Category\Ee\Repositories\CategoryRepository         $categoryRepository         The category repository to use
+     * @param \TechDivision\Import\Category\Ee\Repositories\CategoryDatetimeRepository $categoryDatetimeRepository The category datetime repository to use
+     * @param \TechDivision\Import\Category\Ee\Repositories\CategoryDecimalRepository  $categoryDecimalRepository  The category decimal repository to use
+     * @param \TechDivision\Import\Category\Ee\Repositories\CategoryIntRepository      $categoryIntRepository      The category integer repository to use
+     * @param \TechDivision\Import\Category\Ee\Repositories\CategoryTextRepository     $categoryTextRepository     The category text repository to use
+     * @param \TechDivision\Import\Category\Ee\Repositories\CategoryVarcharRepository  $categoryVarcharRepository  The category varchar repository to use
+     * @param \TechDivision\Import\Repositories\EavAttributeRepository                 $eavAttributeRepository     The EAV attribute repository to use
+     * @param \TechDivision\Import\Repositories\UrlRewriteRepository                   $urlRewriteRepository       The URL rewrite repository to use
+     * @param \TechDivision\Import\Category\Actions\CategoryDatetimeAction             $categoryDatetimeAction     The category datetime action to use
+     * @param \TechDivision\Import\Category\Actions\CategoryDecimalAction              $categoryDecimalAction      The category decimal action to use
+     * @param \TechDivision\Import\Category\Actions\CategoryIntAction                  $categoryIntAction          The category integer action to use
+     * @param \TechDivision\Import\Category\Actions\CategoryAction                     $categoryAction             The category action to use
+     * @param \TechDivision\Import\Category\Actions\CategoryTextAction                 $categoryTextAction         The category text action to use
+     * @param \TechDivision\Import\Category\Actions\CategoryVarcharAction              $categoryVarcharAction      The category varchar action to use
+     * @param \TechDivision\Import\Product\Actions\UrlRewriteAction                    $urlRewriteAction           The URL rewrite action to use
+     * @param \TechDivision\Import\Assembler\CategoryAssembler                         $categoryAssembler          The category assembler to use
+     */
+    public function __construct(
+        \PDO $connection,
+        SequenceCategoryAction $sequenceCategoryAction,
+        CategoryRepository $categoryRepository,
+        CategoryDatetimeRepository $categoryDatetimeRepository,
+        CategoryDecimalRepository $categoryDecimalRepository,
+        CategoryIntRepository $categoryIntRepository,
+        CategoryTextRepository $categoryTextRepository,
+        CategoryVarcharRepository $categoryVarcharRepository,
+        EavAttributeRepository $eavAttributeRepository,
+        UrlRewriteRepository $urlRewriteRepository,
+        CategoryDatetimeAction $categoryDatetimeAction,
+        CategoryDecimalAction $categoryDecimalAction,
+        CategoryIntAction $categoryIntAction,
+        CatgoryAction $categoryAction,
+        CategoryTextAction $categoryTextAction,
+        CategoryVarcharAction $categoryVarcharAction,
+        UrlRewriteAction $urlRewriteAction,
+        CategoryAssembler $categoryAssembler
+    ) {
+
+        // set the sequence category action
+        $this->setSequenceCategoryAction($sequenceCategoryAction);
+
+        // call the parent constructor
+        parent::__construct(
+            $connection,
+            $categoryRepository,
+            $categoryDatetimeRepository,
+            $categoryDecimalRepository,
+            $categoryIntRepository,
+            $categoryVarcharRepository,
+            $eavAttributeRepository,
+            $urlRewriteRepository,
+            $categoryDatetimeAction,
+            $categoryDecimalAction,
+            $categoryIntAction,
+            $categoryAction,
+            $categoryTextAction,
+            $urlRewriteAction,
+            $categoryAssembler
+        );
+    }
 
     /**
      * Set's the action with the sequence category CRUD methods.
