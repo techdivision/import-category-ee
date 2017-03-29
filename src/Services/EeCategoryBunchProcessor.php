@@ -28,6 +28,16 @@ use TechDivision\Import\Category\Ee\Repositories\CategoryDecimalRepository;
 use TechDivision\Import\Category\Ee\Repositories\CategoryIntRepository;
 use TechDivision\Import\Category\Ee\Repositories\CategoryTextRepository;
 use TechDivision\Import\Category\Ee\Repositories\CategoryVarcharRepository;
+use TechDivision\Import\Repositories\EavAttributeRepository;
+use TechDivision\Import\Repositories\UrlRewriteRepository;
+use TechDivision\Import\Category\Actions\CategoryDatetimeAction;
+use TechDivision\Import\Category\Actions\CategoryDecimalAction;
+use TechDivision\Import\Category\Actions\CategoryIntAction;
+use TechDivision\Import\Category\Actions\CategoryAction;
+use TechDivision\Import\Category\Actions\CategoryTextAction;
+use TechDivision\Import\Category\Actions\CategoryVarcharAction;
+use TechDivision\Import\Actions\UrlRewriteAction;
+use TechDivision\Import\Assembler\CategoryAssembler;
 
 /**
  * A processor implementation providing methods to load sequence category data using a PDO connection.
@@ -84,7 +94,7 @@ class EeCategoryBunchProcessor extends CategoryBunchProcessor implements EeCateg
         CategoryDatetimeAction $categoryDatetimeAction,
         CategoryDecimalAction $categoryDecimalAction,
         CategoryIntAction $categoryIntAction,
-        CatgoryAction $categoryAction,
+        CategoryAction $categoryAction,
         CategoryTextAction $categoryTextAction,
         CategoryVarcharAction $categoryVarcharAction,
         UrlRewriteAction $urlRewriteAction,
@@ -101,6 +111,7 @@ class EeCategoryBunchProcessor extends CategoryBunchProcessor implements EeCateg
             $categoryDatetimeRepository,
             $categoryDecimalRepository,
             $categoryIntRepository,
+            $categoryTextRepository,
             $categoryVarcharRepository,
             $eavAttributeRepository,
             $urlRewriteRepository,
@@ -109,6 +120,7 @@ class EeCategoryBunchProcessor extends CategoryBunchProcessor implements EeCateg
             $categoryIntAction,
             $categoryAction,
             $categoryTextAction,
+            $categoryVarcharAction,
             $urlRewriteAction,
             $categoryAssembler
         );
