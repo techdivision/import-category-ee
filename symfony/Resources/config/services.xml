@@ -82,6 +82,9 @@
         <service id="import_category_ee.observer.category.update" class="TechDivision\Import\Category\Ee\Observers\EeCategoryUpdateObserver"/>
         <service id="import_category_ee.observer.clean.up" class="TechDivision\Import\Category\Ee\Observers\EeCleanUpObserver"/>
 
+        <service id="configuration.import_category_ee.subject.bunch" synthetic="true" />
+        <service id="configuration.import_category_ee.plugin.children.count" synthetic="true" />
+
         <service id="import_category_ee.subject.bunch" class="TechDivision\Import\Category\Ee\Subjects\EeBunchSubject" shared="false">
             <argument type="service" id="configuration.import_category_ee.subject.bunch"/>
             <argument type="service" id="import.processor.registry"/>
