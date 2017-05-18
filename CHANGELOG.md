@@ -1,3 +1,13 @@
+# Version 1.0.0-beta3
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Update constructor of EeCategoryBunchProcessor with EavAttributeOptionValueRepository
+
 # Version 1.0.0-beta2
 
 ## Bugfixes

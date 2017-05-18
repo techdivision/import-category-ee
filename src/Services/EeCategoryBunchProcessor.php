@@ -38,6 +38,7 @@ use TechDivision\Import\Category\Actions\CategoryTextAction;
 use TechDivision\Import\Category\Actions\CategoryVarcharAction;
 use TechDivision\Import\Actions\UrlRewriteAction;
 use TechDivision\Import\Assembler\CategoryAssembler;
+use TechDivision\Import\Repositories\EavAttributeOptionValueRepository;
 
 /**
  * A processor implementation providing methods to load sequence category data using a PDO connection.
@@ -61,24 +62,25 @@ class EeCategoryBunchProcessor extends CategoryBunchProcessor implements EeCateg
     /**
      * Initialize the processor with the necessary assembler and repository instances.
      *
-     * @param \PDO                                                                     $connection                 The PDO connection to use
-     * @param \TechDivision\Import\Category\Ee\Actions\SequenceCategoryAction          $sequenceCategoryAction     The sequence category action to use
-     * @param \TechDivision\Import\Category\Ee\Repositories\CategoryRepository         $categoryRepository         The category repository to use
-     * @param \TechDivision\Import\Category\Ee\Repositories\CategoryDatetimeRepository $categoryDatetimeRepository The category datetime repository to use
-     * @param \TechDivision\Import\Category\Ee\Repositories\CategoryDecimalRepository  $categoryDecimalRepository  The category decimal repository to use
-     * @param \TechDivision\Import\Category\Ee\Repositories\CategoryIntRepository      $categoryIntRepository      The category integer repository to use
-     * @param \TechDivision\Import\Category\Ee\Repositories\CategoryTextRepository     $categoryTextRepository     The category text repository to use
-     * @param \TechDivision\Import\Category\Ee\Repositories\CategoryVarcharRepository  $categoryVarcharRepository  The category varchar repository to use
-     * @param \TechDivision\Import\Repositories\EavAttributeRepository                 $eavAttributeRepository     The EAV attribute repository to use
-     * @param \TechDivision\Import\Repositories\UrlRewriteRepository                   $urlRewriteRepository       The URL rewrite repository to use
-     * @param \TechDivision\Import\Category\Actions\CategoryDatetimeAction             $categoryDatetimeAction     The category datetime action to use
-     * @param \TechDivision\Import\Category\Actions\CategoryDecimalAction              $categoryDecimalAction      The category decimal action to use
-     * @param \TechDivision\Import\Category\Actions\CategoryIntAction                  $categoryIntAction          The category integer action to use
-     * @param \TechDivision\Import\Category\Actions\CategoryAction                     $categoryAction             The category action to use
-     * @param \TechDivision\Import\Category\Actions\CategoryTextAction                 $categoryTextAction         The category text action to use
-     * @param \TechDivision\Import\Category\Actions\CategoryVarcharAction              $categoryVarcharAction      The category varchar action to use
-     * @param \TechDivision\Import\Product\Actions\UrlRewriteAction                    $urlRewriteAction           The URL rewrite action to use
-     * @param \TechDivision\Import\Assembler\CategoryAssembler                         $categoryAssembler          The category assembler to use
+     * @param \PDO                                                                        $connection                        The PDO connection to use
+     * @param \TechDivision\Import\Category\Ee\Actions\SequenceCategoryAction             $sequenceCategoryAction            The sequence category action to use
+     * @param \TechDivision\Import\Category\Ee\Repositories\CategoryRepository            $categoryRepository                The category repository to use
+     * @param \TechDivision\Import\Category\Ee\Repositories\CategoryDatetimeRepository    $categoryDatetimeRepository        The category datetime repository to use
+     * @param \TechDivision\Import\Category\Ee\Repositories\CategoryDecimalRepository     $categoryDecimalRepository         The category decimal repository to use
+     * @param \TechDivision\Import\Category\Ee\Repositories\CategoryIntRepository         $categoryIntRepository             The category integer repository to use
+     * @param \TechDivision\Import\Category\Ee\Repositories\CategoryTextRepository        $categoryTextRepository            The category text repository to use
+     * @param \TechDivision\Import\Category\Ee\Repositories\CategoryVarcharRepository     $categoryVarcharRepository         The category varchar repository to use
+     * @param \TechDivision\Import\Product\Repositories\EavAttributeOptionValueRepository $eavAttributeOptionValueRepository The EAV attribute option value repository to use
+     * @param \TechDivision\Import\Repositories\EavAttributeRepository                    $eavAttributeRepository            The EAV attribute repository to use
+     * @param \TechDivision\Import\Repositories\UrlRewriteRepository                      $urlRewriteRepository              The URL rewrite repository to use
+     * @param \TechDivision\Import\Category\Actions\CategoryDatetimeAction                $categoryDatetimeAction            The category datetime action to use
+     * @param \TechDivision\Import\Category\Actions\CategoryDecimalAction                 $categoryDecimalAction             The category decimal action to use
+     * @param \TechDivision\Import\Category\Actions\CategoryIntAction                     $categoryIntAction                 The category integer action to use
+     * @param \TechDivision\Import\Category\Actions\CategoryAction                        $categoryAction                    The category action to use
+     * @param \TechDivision\Import\Category\Actions\CategoryTextAction                    $categoryTextAction                The category text action to use
+     * @param \TechDivision\Import\Category\Actions\CategoryVarcharAction                 $categoryVarcharAction             The category varchar action to use
+     * @param \TechDivision\Import\Product\Actions\UrlRewriteAction                       $urlRewriteAction                  The URL rewrite action to use
+     * @param \TechDivision\Import\Assembler\CategoryAssembler                            $categoryAssembler                 The category assembler to use
      */
     public function __construct(
         \PDO $connection,
@@ -89,6 +91,7 @@ class EeCategoryBunchProcessor extends CategoryBunchProcessor implements EeCateg
         CategoryIntRepository $categoryIntRepository,
         CategoryTextRepository $categoryTextRepository,
         CategoryVarcharRepository $categoryVarcharRepository,
+        EavAttributeOptionValueRepository $eavAttributeOptionValueRepository,
         EavAttributeRepository $eavAttributeRepository,
         UrlRewriteRepository $urlRewriteRepository,
         CategoryDatetimeAction $categoryDatetimeAction,
@@ -113,6 +116,7 @@ class EeCategoryBunchProcessor extends CategoryBunchProcessor implements EeCateg
             $categoryIntRepository,
             $categoryTextRepository,
             $categoryVarcharRepository,
+            $eavAttributeOptionValueRepository,
             $eavAttributeRepository,
             $urlRewriteRepository,
             $categoryDatetimeAction,
