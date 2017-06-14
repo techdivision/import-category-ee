@@ -53,7 +53,8 @@ class CategoryTextRepository extends \TechDivision\Import\Category\Repositories\
         $utilityClassName = $this->getUtilityClassName();
 
         // initialize the prepared statements
-        $this->categoryTextStmt = $this->getConnection()->prepare($utilityClassName::CATEGORY_TEXT);
+        $this->categoryTextStmt =
+            $this->getConnection()->prepare($this->getUtilityClass()->find($utilityClassName::CATEGORY_TEXT));
     }
 
     /**

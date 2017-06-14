@@ -3,45 +3,43 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
-    <parameters>
-        <parameter key="import_category.utility.class.name">TechDivision\Import\Category\Ee\Utils\SqlStatements</parameter>
-        <parameter key="import_category_ee.utility.class.name">TechDivision\Import\Category\Ee\Utils\SqlStatements</parameter>
-    </parameters>
-
     <services>
+
+        <service id="import_category.utility.class.name" class="TechDivision\Import\Category\Ee\Utils\SqlStatements"/>
+        <service id="import_category_ee.utility.class.name" class="TechDivision\Import\Category\Ee\Utils\SqlStatements"/>
 
         <service id="import_category_ee.repository.category.datetime" class="TechDivision\Import\Category\Ee\Repositories\CategoryDatetimeRepository">
             <argument type="service" id="connection"/>
-            <argument>%import_category_ee.utility.class.name%</argument>
+            <argument type="service" id="import_category_ee.utility.class.name"/>
         </service>
         <service id="import_category_ee.repository.category.decimal" class="TechDivision\Import\Category\Ee\Repositories\CategoryDecimalRepository">
             <argument type="service" id="connection"/>
-            <argument>%import_category_ee.utility.class.name%</argument>
+            <argument type="service" id="import_category_ee.utility.class.name"/>
         </service>
         <service id="import_category_ee.repository.category.int" class="TechDivision\Import\Category\Ee\Repositories\CategoryIntRepository">
             <argument type="service" id="connection"/>
-            <argument>%import_category_ee.utility.class.name%</argument>
+            <argument type="service" id="import_category_ee.utility.class.name"/>
         </service>
         <service id="import_category_ee.repository.category" class="TechDivision\Import\Category\Ee\Repositories\CategoryRepository">
             <argument type="service" id="connection"/>
-            <argument>%import_category_ee.utility.class.name%</argument>
+            <argument type="service" id="import_category_ee.utility.class.name"/>
         </service>
         <service id="import_category_ee.repository.category.text" class="TechDivision\Import\Category\Ee\Repositories\CategoryTextRepository">
             <argument type="service" id="connection"/>
-            <argument>%import_category_ee.utility.class.name%</argument>
+            <argument type="service" id="import_category_ee.utility.class.name"/>
         </service>
         <service id="import_category_ee.repository.category.varchar" class="TechDivision\Import\Category\Ee\Repositories\CategoryVarcharRepository">
             <argument type="service" id="connection"/>
-            <argument>%import_category_ee.utility.class.name%</argument>
+            <argument type="service" id="import_category_ee.utility.class.name"/>
         </service>
 
         <service id="import_category_ee.action.processor.category.update" class="TechDivision\Import\Category\Ee\Actions\Processors\CategoryUpdateProcessor">
             <argument type="service" id="connection"/>
-            <argument>%import_category_ee.utility.class.name%</argument>
+            <argument type="service" id="import_category_ee.utility.class.name"/>
         </service>
         <service id="import_category_ee.action.processor.sequence.category.create" class="TechDivision\Import\Category\Ee\Actions\Processors\SequenceCategoryCreateProcessor">
             <argument type="service" id="connection"/>
-            <argument>%import_category_ee.utility.class.name%</argument>
+            <argument type="service" id="import_category_ee.utility.class.name"/>
         </service>
 
         <service id="import_category_ee.action.sequence.category" class="TechDivision\Import\Category\Ee\Actions\SequenceCategoryAction">

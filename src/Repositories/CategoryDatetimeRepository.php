@@ -53,7 +53,8 @@ class CategoryDatetimeRepository extends \TechDivision\Import\Category\Repositor
         $utilityClassName = $this->getUtilityClassName();
 
         // initialize the prepared statements
-        $this->categoryDatetimeStmt = $this->getConnection()->prepare($utilityClassName::CATEGORY_DATETIME);
+        $this->categoryDatetimeStmt =
+            $this->getConnection()->prepare($this->getUtilityClass()->find($utilityClassName::CATEGORY_DATETIME));
     }
 
     /**
