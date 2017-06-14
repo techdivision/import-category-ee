@@ -56,7 +56,8 @@ class CategoryRepository extends \TechDivision\Import\Category\Repositories\Cate
         $utilityClassName = $this->getUtilityClassName();
 
         // initialize the prepared statements
-        $this->categoryStmt = $this->getConnection()->prepare($utilityClassName::CATEGORY);
+        $this->categoryStmt =
+            $this->getConnection()->prepare($this->getUtilityClass()->find($utilityClassName::CATEGORY));
     }
 
     /**

@@ -53,7 +53,8 @@ class CategoryIntRepository extends \TechDivision\Import\Category\Repositories\C
         $utilityClassName = $this->getUtilityClassName();
 
         // initialize the prepared statements
-        $this->categoryIntStmt = $this->getConnection()->prepare($utilityClassName::CATEGORY_INT);
+        $this->categoryIntStmt =
+            $this->getConnection()->prepare($this->getUtilityClass()->find($utilityClassName::CATEGORY_INT));
     }
 
     /**

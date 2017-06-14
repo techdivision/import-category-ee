@@ -20,6 +20,7 @@
 
 namespace TechDivision\Import\Category\Ee\Services;
 
+use TechDivision\Import\Connection\ConnectionInterface;
 use TechDivision\Import\Category\Services\CategoryBunchProcessor;
 use TechDivision\Import\Category\Ee\Actions\SequenceCategoryAction;
 use TechDivision\Import\Category\Ee\Repositories\CategoryRepository;
@@ -62,7 +63,7 @@ class EeCategoryBunchProcessor extends CategoryBunchProcessor implements EeCateg
     /**
      * Initialize the processor with the necessary assembler and repository instances.
      *
-     * @param \PDO                                                                        $connection                        The PDO connection to use
+     * @param \TechDivision\Import\Connection\ConnectionInterface                         $connection                        The connection to use
      * @param \TechDivision\Import\Category\Ee\Actions\SequenceCategoryAction             $sequenceCategoryAction            The sequence category action to use
      * @param \TechDivision\Import\Category\Ee\Repositories\CategoryRepository            $categoryRepository                The category repository to use
      * @param \TechDivision\Import\Category\Ee\Repositories\CategoryDatetimeRepository    $categoryDatetimeRepository        The category datetime repository to use
@@ -83,7 +84,7 @@ class EeCategoryBunchProcessor extends CategoryBunchProcessor implements EeCateg
      * @param \TechDivision\Import\Assembler\CategoryAssembler                            $categoryAssembler                 The category assembler to use
      */
     public function __construct(
-        \PDO $connection,
+        ConnectionInterface $connection,
         SequenceCategoryAction $sequenceCategoryAction,
         CategoryRepository $categoryRepository,
         CategoryDatetimeRepository $categoryDatetimeRepository,
