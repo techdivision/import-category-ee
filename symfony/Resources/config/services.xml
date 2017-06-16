@@ -93,7 +93,7 @@
         </service>
 
         <service id="import_category_ee.plugin.children.count" class="TechDivision\Import\Category\Ee\Plugins\EeChildrenCountPlugin">
-            <argument type="service" id="simple"/>
+            <argument type="service" id="import_app_simple.simple"/>
             <argument type="service" id="configuration.import_category_ee.plugin.children.count"/>
             <argument type="service" id="import_category_ee.processor.category.bunch"/>
         </service>
