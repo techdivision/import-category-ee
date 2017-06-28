@@ -81,11 +81,7 @@
         <service id="import_category_ee.observer.category.update" class="TechDivision\Import\Category\Ee\Observers\EeCategoryUpdateObserver"/>
         <service id="import_category_ee.observer.clean.up" class="TechDivision\Import\Category\Ee\Observers\EeCleanUpObserver"/>
 
-        <service id="configuration.import_category_ee.subject.bunch" synthetic="true" />
-        <service id="configuration.import_category_ee.plugin.children.count" synthetic="true" />
-
         <service id="import_category_ee.subject.bunch" class="TechDivision\Import\Category\Ee\Subjects\EeBunchSubject" shared="false">
-            <argument type="service" id="configuration.import_category_ee.subject.bunch"/>
             <argument type="service" id="import.processor.registry"/>
             <argument type="service" id="import.generator.core.config.data.uid"/>
             <argument type="service" id="loggers"/>
@@ -94,7 +90,6 @@
 
         <service id="import_category_ee.plugin.children.count" class="TechDivision\Import\Category\Ee\Plugins\EeChildrenCountPlugin">
             <argument type="service" id="import_app_simple.simple"/>
-            <argument type="service" id="configuration.import_category_ee.plugin.children.count"/>
             <argument type="service" id="import_category_ee.processor.category.bunch"/>
         </service>
 
