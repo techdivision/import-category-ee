@@ -74,12 +74,22 @@
             <argument type="service" id="import.assembler.category"/>
         </service>
 
-        <service id="import_category_ee.observer.category.attribute" class="TechDivision\Import\Category\Ee\Observers\EeCategoryAttributeObserver"/>
-        <service id="import_category_ee.observer.category.attribute.update" class="TechDivision\Import\Category\Ee\Observers\EeCategoryAttributeUpdateObserver"/>
-        <service id="import_category_ee.observer.category" class="TechDivision\Import\Category\Ee\Observers\EeCategoryObserver"/>
-        <service id="import_category_ee.observer.category.path" class="TechDivision\Import\Category\Ee\Observers\EeCategoryPathObserver"/>
-        <service id="import_category_ee.observer.category.update" class="TechDivision\Import\Category\Ee\Observers\EeCategoryUpdateObserver"/>
         <service id="import_category_ee.observer.clean.up" class="TechDivision\Import\Category\Ee\Observers\EeCleanUpObserver"/>
+        <service id="import_category_ee.observer.category.attribute" class="TechDivision\Import\Category\Ee\Observers\EeCategoryAttributeObserver">
+            <argument type="service" id="import_category_ee.processor.category.bunch"/>
+        </service>
+        <service id="import_category_ee.observer.category.attribute.update" class="TechDivision\Import\Category\Ee\Observers\EeCategoryAttributeUpdateObserver">
+            <argument type="service" id="import_category_ee.processor.category.bunch"/>
+        </service>
+        <service id="import_category_ee.observer.category" class="TechDivision\Import\Category\Ee\Observers\EeCategoryObserver">
+            <argument type="service" id="import_category_ee.processor.category.bunch"/>
+        </service>
+        <service id="import_category_ee.observer.category.path" class="TechDivision\Import\Category\Ee\Observers\EeCategoryPathObserver">
+            <argument type="service" id="import_category_ee.processor.category.bunch"/>
+        </service>
+        <service id="import_category_ee.observer.category.update" class="TechDivision\Import\Category\Ee\Observers\EeCategoryUpdateObserver">
+            <argument type="service" id="import_category_ee.processor.category.bunch"/>
+        </service>
 
         <service id="import_category_ee.subject.bunch" class="TechDivision\Import\Category\Ee\Subjects\EeBunchSubject" shared="false">
             <argument type="service" id="import.processor.registry"/>
