@@ -54,15 +54,16 @@ class EeBunchSubjectTest extends \PHPUnit_Framework_TestCase
                                       ->setMethods(get_class_methods('TechDivision\Import\Services\RegistryProcessorInterface'))
                                       ->getMock();
 
+        // create a generator
+        $mockGenerator = $this->getMockBuilder('TechDivision\Import\Utils\Generators\GeneratorInterface')
+                              ->setMethods(get_class_methods('TechDivision\Import\Utils\Generators\GeneratorInterface'))
+                              ->getMock();
+
         // create a mock category processor
         $mockCategoryProcessor = $this->getMockBuilder('TechDivision\Import\Category\Ee\Services\EeCategoryBunchProcessorInterface')
                                       ->setMethods(get_class_methods('TechDivision\Import\Category\Ee\Services\EeCategoryBunchProcessorInterface'))
                                       ->getMock();
 
-        // create a generator
-        $mockGenerator = $this->getMockBuilder('TechDivision\Import\Utils\Generators\GeneratorInterface')
-                              ->setMethods(get_class_methods('TechDivision\Import\Utils\Generators\GeneratorInterface'))
-                              ->getMock();
 
         // create the subject to be tested
         $this->subject = new EeBunchSubject(
@@ -74,32 +75,17 @@ class EeBunchSubjectTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test's the persistCategory() method successfull.
+     * Test's the last row ID setter/getter methods successfull.
      *
      * @return void
      */
-    public function testPersistCategorySuccessufull()
+    public function testSetGetLastRowId()
     {
 
-        // create a mock category processor
-        $mockProcessor = $this->getMockBuilder('TechDivision\Import\Category\Ee\Services\EeCategoryBunchProcessorInterface')
-                              ->setMethods(get_class_methods('TechDivision\Import\Category\Ee\Services\EeCategoryBunchProcessorInterface'))
-                              ->getMock();
-        $mockProcessor->expects($this->once())
-                      ->method('persistCategory')
-                      ->with($category = array('path' => '2/3/4'))
-                      ->willReturn(null);
+        // set the last row ID
+        $this->subject->setLastRowId($lastRowId = 100);
 
-        // create a mock subject configuration
-        $mockSubjectConfiguration = $this->getMockBuilder('TechDivision\Import\Configuration\SubjectConfigurationInterface')
-                                         ->setMethods(get_class_methods('TechDivision\Import\Configuration\SubjectConfigurationInterface'))
-                                         ->getMock();
-
-        // inject the processor + configuration
-        $this->subject->setCategoryProcessor($mockProcessor);
-        $this->subject->setConfiguration($mockSubjectConfiguration);
-
-        // make sure that the category will be persisted
-        $this->assertNull($this->subject->persistCategory($category));
+        // make sure that the last row ID will be returend
+        $this->assertSame($lastRowId, $this->subject->getLastRowId());
     }
 }

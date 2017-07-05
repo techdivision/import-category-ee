@@ -84,7 +84,7 @@ class EeCategoryAttributeUpdateObserver extends CategoryAttributeUpdateObserver
      */
     protected function loadCategoryDatetimeAttributeByRowIdAndAttributeIdAndStoreId($rowId, $attributeId, $storeId)
     {
-        return  $this->getSubject()->loadCategoryDatetimeAttributeByRowIdAndAttributeIdAndStoreId($rowId, $attributeId, $storeId);
+        return  $this->getCategoryBunchProcessor()->loadCategoryDatetimeAttributeByRowIdAndAttributeIdAndStoreId($rowId, $attributeId, $storeId);
     }
 
     /**
@@ -98,7 +98,7 @@ class EeCategoryAttributeUpdateObserver extends CategoryAttributeUpdateObserver
      */
     protected function loadCategoryDecimalAttributeByRowIdAndAttributeIdAndStoreId($rowId, $attributeId, $storeId)
     {
-        return  $this->getSubject()->loadCategoryDecimalAttributeByRowIdAndAttributeIdAndStoreId($rowId, $attributeId, $storeId);
+        return  $this->getCategoryBunchProcessor()->loadCategoryDecimalAttributeByRowIdAndAttributeIdAndStoreId($rowId, $attributeId, $storeId);
     }
 
     /**
@@ -112,7 +112,7 @@ class EeCategoryAttributeUpdateObserver extends CategoryAttributeUpdateObserver
      */
     protected function loadCategoryIntAttributeByRowIdAndAttributeIdAndStoreId($rowId, $attributeId, $storeId)
     {
-        return $this->getSubject()->loadCategoryIntAttributeByRowIdAndAttributeIdAndStoreId($rowId, $attributeId, $storeId);
+        return $this->getCategoryBunchProcessor()->loadCategoryIntAttributeByRowIdAndAttributeIdAndStoreId($rowId, $attributeId, $storeId);
     }
 
     /**
@@ -126,7 +126,7 @@ class EeCategoryAttributeUpdateObserver extends CategoryAttributeUpdateObserver
      */
     protected function loadCategoryTextAttributeByRowIdAndAttributeIdAndStoreId($rowId, $attributeId, $storeId)
     {
-        return $this->getSubject()->loadCategoryTextAttributeByRowIdAndAttributeIdAndStoreId($rowId, $attributeId, $storeId);
+        return $this->getCategoryBunchProcessor()->loadCategoryTextAttributeByRowIdAndAttributeIdAndStoreId($rowId, $attributeId, $storeId);
     }
 
     /**
@@ -140,6 +140,6 @@ class EeCategoryAttributeUpdateObserver extends CategoryAttributeUpdateObserver
      */
     protected function loadCategoryVarcharAttributeByRowIdAndAttributeIdAndStoreId($rowId, $attributeId, $storeId)
     {
-        return $this->getSubject()->loadCategoryVarcharAttributeByRowIdAndAttributeIdAndStoreId($rowId, $attributeId, $storeId);
+        return $this->getCategoryBunchProcessor()->loadCategoryVarcharAttributeByRowIdAndAttributeIdAndStoreId($rowId, $attributeId, $storeId);
     }
 }

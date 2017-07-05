@@ -117,6 +117,6 @@ trait EeCategoryObserverTrait
      */
     protected function nextIdentifier()
     {
-        return $this->getSubject()->nextIdentifier();
+        return $this->getCategoryBunchProcessor()->nextIdentifier();
     }
 }
