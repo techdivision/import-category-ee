@@ -20,6 +20,8 @@
 
 namespace TechDivision\Import\Category\Ee\Subjects;
 
+use Doctrine\Common\Collections\ArrayCollection;
+
 /**
  * Test class for the product action implementation.
  *
@@ -35,7 +37,7 @@ class EeBunchSubjectTest extends \PHPUnit_Framework_TestCase
     /**
      * The subject we want to test.
      *
-     * @var \TechDivision\Import\Category\Ee\Subjects\BunchSubject
+     * @var \TechDivision\Import\Category\Ee\Subjects\EeBunchSubject
      */
     protected $subject;
 
@@ -69,7 +71,7 @@ class EeBunchSubjectTest extends \PHPUnit_Framework_TestCase
         $this->subject = new EeBunchSubject(
             $mockRegistryProcessor,
             $mockGenerator,
-            array(),
+            new ArrayCollection(),
             $mockCategoryProcessor
         );
     }
