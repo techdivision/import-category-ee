@@ -20,7 +20,6 @@
 
 namespace TechDivision\Import\Category\Ee\Observers;
 
-use TechDivision\Import\Category\Utils\ColumnKeys;
 use TechDivision\Import\Category\Ee\Utils\MemberNames;
 
 /**
@@ -36,66 +35,36 @@ trait EeCategoryObserverTrait
 {
 
     /**
-     * Process the observer's business logic.
+     * Return the primary key member name.
+     *
+     * @return string The primary key member name
+     */
+    protected function getPkMemberName()
+    {
+        return MemberNames::ROW_ID;
+    }
+
+    /**
+     * Tmporary persist the entity ID
+     *
+     * @param array $category The category to update the IDs
      *
      * @return void
      */
-    protected function process()
+    protected function updatePrimaryKeys(array $category)
     {
+        $this->setLastEntityId($category[MemberNames::ENTITY_ID]);
+        $this->setLastRowId($category[$this->getPkMemberName()]);
+    }
 
-        // query whether or not, we've found a new path => means we've found a new category
-        if ($this->hasBeenProcessed($path = $this->getValue(ColumnKeys::PATH))) {
-            return;
-        }
-
-        // explode the path into the category names
-        if ($categories = $this->explode($path, '/')) {
-            // initialize the artefacts and reset the category IDs
-            $artefacts = array();
-            $this->categoryIds = array();
-
-            // iterate over the category names and try to load the categegory therefore
-            for ($i = sizeof($categories); $i > 0; $i--) {
-                try {
-                    // prepare the expected category name
-                    $categoryPath = implode('/', array_slice($categories, 0, $i));
-                    // load the existing category and prepend the ID the array with the category IDs
-                    $existingCategory = $this->getCategoryByPath($categoryPath);
-                    array_unshift($this->categoryIds, $existingCategory[MemberNames::ENTITY_ID]);
-
-                } catch (\Exception $e) {
-                    $this->getSystemLogger()->debug(sprintf('Can\'t load category %s, create a new one', $categoryPath));
-                }
-            }
-
-            // prepare the static entity values, insert the entity and set the entity ID
-            $category = $this->initializeCategory($this->prepareAttributes());
-
-            $this->setLastEntityId($entityId = $category[MemberNames::ENTITY_ID]);
-            $this->setLastRowId($rowId = $this->persistCategory($category));
-
-            //update the persisted category with the entity ID
-            $category[MemberNames::ROW_ID] = $rowId;
-            $category[MemberNames::URL_KEY] = $this->getValue(ColumnKeys::URL_KEY);
-
-            // append the category to the list
-            $this->addCategory($path, $category);
-
-            // append the ID of the new category to array with the IDs
-            array_push($this->categoryIds, $entityId);
-
-            // prepare the artefact
-            $artefact = array(
-                MemberNames::ROW_ID => $rowId,
-                MemberNames::PATH   => implode('/', $this->categoryIds)
-            );
-
-            // put the artefact on the stack
-            $artefacts[] = $artefact;
-
-            // add the artefacts
-            $this->addArtefacts($artefacts);
-        }
+    /**
+     * Return's the row ID of the product that has been created recently.
+     *
+     * @return string The row Id
+     */
+    protected function getLastRowId()
+    {
+        return $this->getSubject()->getLastRowId();
     }
 
     /**
