@@ -6,7 +6,6 @@
   "archive-artefacts" : true,
   "debug-mode" : false,
   "entity-type-code" : "catalog_category",
-  "system-name" : "system-name/category-import",
   "databases" : [
   ],
   "loggers": [
