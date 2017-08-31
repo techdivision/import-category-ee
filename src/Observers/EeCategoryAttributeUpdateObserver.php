@@ -21,6 +21,7 @@
 namespace TechDivision\Import\Category\Ee\Observers;
 
 use TechDivision\Import\Category\Ee\Utils\MemberNames;
+use TechDivision\Import\Ee\Observers\EeAttributeObserverTrait;
 use TechDivision\Import\Category\Observers\CategoryAttributeUpdateObserver;
 
 /**
@@ -38,9 +39,9 @@ class EeCategoryAttributeUpdateObserver extends CategoryAttributeUpdateObserver
     /**
      * The trait providing basic EE product attribute functionality.
      *
-     * @var \TechDivision\Import\Category\Ee\Observers\EeCategoryAttributeObserverTrait
+     * @var \TechDivision\Import\Ee\Observers\EeAttributeObserverTrait
      */
-    use EeCategoryAttributeObserverTrait;
+    use EeAttributeObserverTrait;
 
     /**
      * Initialize the category product with the passed attributes and returns an instance.
@@ -76,70 +77,70 @@ class EeCategoryAttributeUpdateObserver extends CategoryAttributeUpdateObserver
     /**
      * Load's and return's the datetime attribute with the passed row/attribute/store ID.
      *
-     * @param integer $rowId       The row ID of the attribute
+     * @param integer $pk          The row ID of the attribute
      * @param integer $attributeId The attribute ID of the attribute
      * @param integer $storeId     The store ID of the attribute
      *
      * @return array|null The datetime attribute
      */
-    protected function loadCategoryDatetimeAttributeByRowIdAndAttributeIdAndStoreId($rowId, $attributeId, $storeId)
+    protected function loadDatetimeAttribute($pk, $attributeId, $storeId)
     {
-        return  $this->getCategoryBunchProcessor()->loadCategoryDatetimeAttributeByRowIdAndAttributeIdAndStoreId($rowId, $attributeId, $storeId);
+        return  $this->getCategoryBunchProcessor()->loadCategoryDatetimeAttributeByRowIdAndAttributeIdAndStoreId($pk, $attributeId, $storeId);
     }
 
     /**
      * Load's and return's the decimal attribute with the passed row/attribute/store ID.
      *
-     * @param integer $rowId       The row ID of the attribute
+     * @param integer $pk          The row ID of the attribute
      * @param integer $attributeId The attribute ID of the attribute
      * @param integer $storeId     The store ID of the attribute
      *
      * @return array|null The decimal attribute
      */
-    protected function loadCategoryDecimalAttributeByRowIdAndAttributeIdAndStoreId($rowId, $attributeId, $storeId)
+    protected function loadDecimalAttribute($pk, $attributeId, $storeId)
     {
-        return  $this->getCategoryBunchProcessor()->loadCategoryDecimalAttributeByRowIdAndAttributeIdAndStoreId($rowId, $attributeId, $storeId);
+        return  $this->getCategoryBunchProcessor()->loadCategoryDecimalAttributeByRowIdAndAttributeIdAndStoreId($pk, $attributeId, $storeId);
     }
 
     /**
      * Load's and return's the integer attribute with the passed row/attribute/store ID.
      *
-     * @param integer $rowId       The row ID of the attribute
+     * @param integer $pk          The row ID of the attribute
      * @param integer $attributeId The attribute ID of the attribute
      * @param integer $storeId     The store ID of the attribute
      *
      * @return array|null The integer attribute
      */
-    protected function loadCategoryIntAttributeByRowIdAndAttributeIdAndStoreId($rowId, $attributeId, $storeId)
+    protected function loadIntAttribute($pk, $attributeId, $storeId)
     {
-        return $this->getCategoryBunchProcessor()->loadCategoryIntAttributeByRowIdAndAttributeIdAndStoreId($rowId, $attributeId, $storeId);
+        return $this->getCategoryBunchProcessor()->loadCategoryIntAttributeByRowIdAndAttributeIdAndStoreId($pk, $attributeId, $storeId);
     }
 
     /**
      * Load's and return's the text attribute with the passed row/attribute/store ID.
      *
-     * @param integer $rowId       The row ID of the attribute
+     * @param integer $pk          The row ID of the attribute
      * @param integer $attributeId The attribute ID of the attribute
      * @param integer $storeId     The store ID of the attribute
      *
      * @return array|null The text attribute
      */
-    protected function loadCategoryTextAttributeByRowIdAndAttributeIdAndStoreId($rowId, $attributeId, $storeId)
+    protected function loadTextAttribute($pk, $attributeId, $storeId)
     {
-        return $this->getCategoryBunchProcessor()->loadCategoryTextAttributeByRowIdAndAttributeIdAndStoreId($rowId, $attributeId, $storeId);
+        return $this->getCategoryBunchProcessor()->loadCategoryTextAttributeByRowIdAndAttributeIdAndStoreId($pk, $attributeId, $storeId);
     }
 
     /**
      * Load's and return's the varchar attribute with the passed row/attribute/store ID.
      *
-     * @param integer $rowId       The row ID of the attribute
+     * @param integer $pk          The row ID of the attribute
      * @param integer $attributeId The attribute ID of the attribute
      * @param integer $storeId     The store ID of the attribute
      *
      * @return array|null The varchar attribute
      */
-    protected function loadCategoryVarcharAttributeByRowIdAndAttributeIdAndStoreId($rowId, $attributeId, $storeId)
+    protected function loadVarcharAttribute($pk, $attributeId, $storeId)
     {
-        return $this->getCategoryBunchProcessor()->loadCategoryVarcharAttributeByRowIdAndAttributeIdAndStoreId($rowId, $attributeId, $storeId);
+        return $this->getCategoryBunchProcessor()->loadCategoryVarcharAttributeByRowIdAndAttributeIdAndStoreId($pk, $attributeId, $storeId);
     }
 }
