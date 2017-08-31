@@ -50,19 +50,6 @@ class EeBunchSubject extends BunchSubject
     protected $pathRowIdMapping = array();
 
     /**
-     * The mapping for the supported backend types (for the product entity) => persist methods.
-     *
-     * @var array
-     */
-    protected $backendTypes = array(
-        'datetime' => array('persistDatetimeAttribute', 'loadCategoryDatetimeAttributeByRowIdAndAttributeIdAndStoreId'),
-        'decimal'  => array('persistDecimalAttribute', 'loadCategoryDecimalAttributeByRowIdAndAttributeIdAndStoreId'),
-        'int'      => array('persistIntAttribute', 'loadCategoryIntAttributeByRowIdAndAttributeIdAndStoreId'),
-        'text'     => array('persistTextAttribute', 'loadCategoryTextAttributeByRowIdAndAttributeIdAndStoreId'),
-        'varchar'  => array('persistVarcharAttribute', 'loadCategoryVarcharAttributeByRowIdAndAttributeIdAndStoreId')
-    );
-
-    /**
      * Clean up the global data after importing the bunch.
      *
      * @param string $serial The serial of the actual import
