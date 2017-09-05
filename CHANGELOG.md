@@ -1,3 +1,13 @@
+# Version 1.0.0-beta17
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Update configuration files for refactored URL rewrite functionality
+
 # Version 1.0.0-beta16
 
 ## Bugfixes
