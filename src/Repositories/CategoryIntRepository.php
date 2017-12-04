@@ -21,6 +21,7 @@
 namespace TechDivision\Import\Category\Ee\Repositories;
 
 use TechDivision\Import\Category\Ee\Utils\MemberNames;
+use TechDivision\Import\Category\Ee\Utils\SqlStatementKeys;
 
 /**
  * Repository implementation to load category integer attribute data.
@@ -49,12 +50,9 @@ class CategoryIntRepository extends \TechDivision\Import\Category\Repositories\C
     public function init()
     {
 
-        // load the utility class name
-        $utilityClassName = $this->getUtilityClassName();
-
         // initialize the prepared statements
         $this->categoryIntStmt =
-            $this->getConnection()->prepare($this->getUtilityClass()->find($utilityClassName::CATEGORY_INT));
+            $this->getConnection()->prepare($this->loadStatement(SqlStatementKeys::CATEGORY_INT));
     }
 
     /**

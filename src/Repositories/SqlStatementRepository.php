@@ -1,7 +1,7 @@
 <?php
 
 /**
- * TechDivision\Import\Category\Ee\Utils\SqlStatements
+ * TechDivision\Import\Category\Ee\Repositories\SqlStatementRepository
  *
  * NOTICE OF LICENSE
  *
@@ -18,10 +18,12 @@
  * @link      http://www.techdivision.com
  */
 
-namespace TechDivision\Import\Category\Ee\Utils;
+namespace TechDivision\Import\Category\Ee\Repositories;
+
+use TechDivision\Import\Category\Ee\Utils\SqlStatementKeys;
 
 /**
- * Utility class with the SQL statements to use.
+ * Repository class with the SQL statements to use.
  *
  * @author    Tim Wagner <t.wagner@techdivision.com>
  * @copyright 2016 TechDivision GmbH <info@techdivision.com>
@@ -29,155 +31,8 @@ namespace TechDivision\Import\Category\Ee\Utils;
  * @link      https://github.com/techdivision/import-category-ee
  * @link      http://www.techdivision.com
  */
-class SqlStatements extends \TechDivision\Import\Category\Utils\SqlStatements
+class SqlStatementRepository extends \TechDivision\Import\Category\Repositories\SqlStatementRepository
 {
-
-    /**
-     * The SQL statement to load all available categories.
-     *
-     * @var string
-     */
-    const CATEGORIES = 'categories';
-
-    /**
-     * The SQL statement to load the category varchars for a list of entity IDs.
-     *
-     * @var string
-     */
-    const CATEGORY_VARCHARS_BY_ENTITY_IDS = 'category_varchars.by.entity_ids';
-
-    /**
-     * The SQL statement to load the actual category with the passed row ID.
-     *
-     * @var string
-     */
-    const CATEGORY = 'category';
-
-    /**
-     * The SQL statement to load the category datetime attribute with the passed row/attribute/store ID.
-     *
-     * @var string
-     */
-    const CATEGORY_DATETIME = 'category_datetime';
-
-    /**
-     * The SQL statement to load the category decimal attribute with the passed row/attribute/store ID.
-     *
-     * @var string
-     */
-    const CATEGORY_DECIMAL = 'category_decimal';
-
-    /**
-     * The SQL statement to load the category integer attribute with the passed row/attribute/store ID.
-     *
-     * @var string
-     */
-    const CATEGORY_INT = 'category_int';
-
-    /**
-     * The SQL statement to load the category text attribute with the passed row/attribute/store ID.
-     *
-     * @var string
-     */
-    const CATEGORY_TEXT = 'category_text';
-
-    /**
-     * The SQL statement to load the category varchar attribute with the passed row/attribute/store ID.
-     *
-     * @var string
-     */
-    const CATEGORY_VARCHAR = 'category_varchar';
-
-    /**
-     * The SQL statement to create a new sequence category value.
-     *
-     * @var string
-     */
-    const CREATE_SEQUENCE_CATEGORY = 'create.sequence_category';
-
-    /**
-     * The SQL statement to create new categories.
-     *
-     * @var string
-     */
-    const CREATE_CATEGORY = 'create.category';
-
-    /**
-     * The SQL statement to update an existing category.
-     *
-     * @var string
-     */
-    const UPDATE_CATEGORY = 'update.category';
-
-    /**
-     * The SQL statement to create a new category datetime value.
-     *
-     * @var string
-     */
-    const CREATE_CATEGORY_DATETIME = 'create.category_datetime';
-
-    /**
-     * The SQL statement to update an existing category datetime value.
-     *
-     * @var string
-     */
-    const UPDATE_CATEGORY_DATETIME = 'update.category_datetime';
-
-    /**
-     * The SQL statement to create a new category decimal value.
-     *
-     * @var string
-     */
-    const CREATE_CATEGORY_DECIMAL = 'create.category_decimal';
-
-    /**
-     * The SQL statement to update an existing category decimal value.
-     *
-     * @var string
-     */
-    const UPDATE_CATEGORY_DECIMAL = 'update.category_decimal';
-
-    /**
-     * The SQL statement to create a new category integer value.
-     *
-     * @var string
-     */
-    const CREATE_CATEGORY_INT = 'create.category_int';
-
-    /**
-     * The SQL statement to update an existing category integer value.
-     *
-     * @var string
-     */
-    const UPDATE_CATEGORY_INT = 'update.category_int';
-
-    /**
-     * The SQL statement to create a new category varchar value.
-     *
-     * @var string
-     */
-    const CREATE_CATEGORY_VARCHAR = 'create.category_varchar';
-
-    /**
-     * The SQL statement to update an existing category varchar value.
-     *
-     * @var string
-     */
-    const UPDATE_CATEGORY_VARCHAR = 'update.category_varchar';
-
-    /**
-     * The SQL statement to create a new category text value.
-     *
-     * @var string
-     */
-    const CREATE_CATEGORY_TEXT = 'create.category_text';
-
-    /**
-     * The SQL statement to update an existing category text value.
-     *
-     * @var string
-     */
-    const UPDATE_CATEGORY_TEXT = 'update.category_text';
 
     /**
      * The SQL statements.
@@ -185,7 +40,7 @@ class SqlStatements extends \TechDivision\Import\Category\Utils\SqlStatements
      * @var array
      */
     private $statements = array(
-        SqlStatements::CATEGORIES =>
+        SqlStatementKeys::CATEGORIES =>
             'SELECT t0.*,
                     (SELECT `value`
                        FROM eav_attribute t1, catalog_category_entity_varchar t2
@@ -202,7 +57,7 @@ class SqlStatements extends \TechDivision\Import\Category\Utils\SqlStatements
                         AND t2.store_id = 0
                         AND t2.row_id = t0.row_id) AS url_path
                FROM catalog_category_entity AS t0',
-        SqlStatements::CATEGORY_VARCHARS_BY_ENTITY_IDS =>
+        SqlStatementKeys::CATEGORY_VARCHARS_BY_ENTITY_IDS =>
             'SELECT t1.*
                FROM catalog_category_entity AS t0
          INNER JOIN catalog_category_entity_varchar AS t1
@@ -213,41 +68,41 @@ class SqlStatements extends \TechDivision\Import\Category\Utils\SqlStatements
                 AND t1.attribute_id = t2.attribute_id
                 AND t1.store_id = 0
                 AND t0.entity_id IN (?)',
-        SqlStatements::CATEGORY =>
+        SqlStatementKeys::CATEGORY =>
             'SELECT * FROM catalog_category_entity WHERE row_id = :row_id',
-        SqlStatements::CATEGORY_DATETIME =>
+        SqlStatementKeys::CATEGORY_DATETIME =>
             'SELECT *
                FROM catalog_category_entity_datetime
               WHERE row_id = :row_id
                 AND attribute_id = :attribute_id
                 AND store_id = :store_id',
-        SqlStatements::CATEGORY_DECIMAL =>
+        SqlStatementKeys::CATEGORY_DECIMAL =>
             'SELECT *
                FROM catalog_category_entity_decimal
               WHERE row_id = :row_id
                 AND attribute_id = :attribute_id
                 AND store_id = :store_id',
-        SqlStatements::CATEGORY_INT =>
+        SqlStatementKeys::CATEGORY_INT =>
             'SELECT *
                FROM catalog_category_entity_int
               WHERE row_id = :row_id
                 AND attribute_id = :attribute_id
                 AND store_id = :store_id',
-        SqlStatements::CATEGORY_TEXT =>
+        SqlStatementKeys::CATEGORY_TEXT =>
             'SELECT *
                FROM catalog_category_entity_text
               WHERE row_id = :row_id
                 AND attribute_id = :attribute_id
                 AND store_id = :store_id',
-        SqlStatements::CATEGORY_VARCHAR =>
+        SqlStatementKeys::CATEGORY_VARCHAR =>
             'SELECT *
                FROM catalog_category_entity_varchar
               WHERE row_id = :row_id
                 AND attribute_id = :attribute_id
                 AND store_id = :store_id',
-        SqlStatements::CREATE_SEQUENCE_CATEGORY =>
+        SqlStatementKeys::CREATE_SEQUENCE_CATEGORY =>
             'INSERT INTO sequence_catalog_category VALUES ()',
-        SqlStatements::CREATE_CATEGORY =>
+        SqlStatementKeys::CREATE_CATEGORY =>
             'INSERT
                INTO catalog_category_entity
                     (attribute_set_id,
@@ -272,7 +127,7 @@ class SqlStatements extends \TechDivision\Import\Category\Utils\SqlStatements
                      :position,
                      :level,
                      :children_count)',
-        SqlStatements::UPDATE_CATEGORY =>
+        SqlStatementKeys::UPDATE_CATEGORY =>
             'UPDATE catalog_category_entity
                 SET attribute_set_id = :attribute_set_id,
                     entity_id = :entity_id,
@@ -286,7 +141,7 @@ class SqlStatements extends \TechDivision\Import\Category\Utils\SqlStatements
                     level = :level,
                     children_count = :children_count
               WHERE entity_id = :entity_id',
-        SqlStatements::CREATE_CATEGORY_DATETIME =>
+        SqlStatementKeys::CREATE_CATEGORY_DATETIME =>
             'INSERT
                INTO catalog_category_entity_datetime
                     (row_id,
@@ -297,14 +152,14 @@ class SqlStatements extends \TechDivision\Import\Category\Utils\SqlStatements
                     :attribute_id,
                     :store_id,
                     :value)',
-        SqlStatements::UPDATE_CATEGORY_DATETIME =>
+        SqlStatementKeys::UPDATE_CATEGORY_DATETIME =>
             'UPDATE catalog_category_entity_datetime
                SET row_id = :row_id,
                    attribute_id = :attribute_id,
                    store_id = :store_id,
                    value = :value
              WHERE value_id = :value_id',
-        SqlStatements::CREATE_CATEGORY_DECIMAL =>
+        SqlStatementKeys::CREATE_CATEGORY_DECIMAL =>
             'INSERT
                INTO catalog_category_entity_decimal
                     (row_id,
@@ -315,14 +170,14 @@ class SqlStatements extends \TechDivision\Import\Category\Utils\SqlStatements
                     :attribute_id,
                     :store_id,
                     :value)',
-        SqlStatements::UPDATE_CATEGORY_DECIMAL =>
+        SqlStatementKeys::UPDATE_CATEGORY_DECIMAL =>
             'UPDATE catalog_category_entity_decimal
                 SET row_id = :row_id,
                     attribute_id = :attribute_id,
                     store_id = :store_id,
                     value = :value
               WHERE value_id = :value_id',
-        SqlStatements::CREATE_CATEGORY_INT =>
+        SqlStatementKeys::CREATE_CATEGORY_INT =>
             'INSERT
                INTO catalog_category_entity_int
                     (row_id,
@@ -333,14 +188,14 @@ class SqlStatements extends \TechDivision\Import\Category\Utils\SqlStatements
                      :attribute_id,
                      :store_id,
                      :value)',
-        SqlStatements::UPDATE_CATEGORY_INT =>
+        SqlStatementKeys::UPDATE_CATEGORY_INT =>
             'UPDATE catalog_category_entity_int
                 SET row_id = :row_id,
                     attribute_id = :attribute_id,
                     store_id = :store_id,
                     value = :value
               WHERE value_id = :value_id',
-        SqlStatements::CREATE_CATEGORY_VARCHAR =>
+        SqlStatementKeys::CREATE_CATEGORY_VARCHAR =>
             'INSERT
                INTO catalog_category_entity_varchar
                     (row_id,
@@ -351,14 +206,14 @@ class SqlStatements extends \TechDivision\Import\Category\Utils\SqlStatements
                      :attribute_id,
                      :store_id,
                      :value)',
-        SqlStatements::UPDATE_CATEGORY_VARCHAR =>
+        SqlStatementKeys::UPDATE_CATEGORY_VARCHAR =>
             'UPDATE catalog_category_entity_varchar
                 SET row_id = :row_id,
                     attribute_id = :attribute_id,
                     store_id = :store_id,
                     value = :value
               WHERE value_id = :value_id',
-        SqlStatements::CREATE_CATEGORY_TEXT =>
+        SqlStatementKeys::CREATE_CATEGORY_TEXT =>
             'INSERT
                INTO catalog_category_entity_text
                     (row_id,
@@ -369,7 +224,7 @@ class SqlStatements extends \TechDivision\Import\Category\Utils\SqlStatements
                      :attribute_id,
                      :store_id,
                      :value)',
-        SqlStatements::UPDATE_CATEGORY_TEXT =>
+        SqlStatementKeys::UPDATE_CATEGORY_TEXT =>
             'UPDATE catalog_category_entity_text
                 SET row_id = :row_id,
                     attribute_id = :attribute_id,

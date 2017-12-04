@@ -21,6 +21,7 @@
 namespace TechDivision\Import\Category\Ee\Repositories;
 
 use TechDivision\Import\Category\Ee\Utils\MemberNames;
+use TechDivision\Import\Category\Ee\Utils\SqlStatementKeys;
 
 /**
  * Repository implementation to load category datetime attribute data.
@@ -49,12 +50,9 @@ class CategoryDatetimeRepository extends \TechDivision\Import\Category\Repositor
     public function init()
     {
 
-        // load the utility class name
-        $utilityClassName = $this->getUtilityClassName();
-
         // initialize the prepared statements
         $this->categoryDatetimeStmt =
-            $this->getConnection()->prepare($this->getUtilityClass()->find($utilityClassName::CATEGORY_DATETIME));
+            $this->getConnection()->prepare($this->loadStatement(SqlStatementKeys::CATEGORY_DATETIME));
     }
 
     /**

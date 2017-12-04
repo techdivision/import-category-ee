@@ -21,6 +21,7 @@
 namespace TechDivision\Import\Category\Ee\Repositories;
 
 use TechDivision\Import\Category\Ee\Utils\MemberNames;
+use TechDivision\Import\Category\Ee\Utils\SqlStatementKeys;
 
 /**
  * Repository implementation to load category text attribute data.
@@ -49,12 +50,9 @@ class CategoryTextRepository extends \TechDivision\Import\Category\Repositories\
     public function init()
     {
 
-        // load the utility class name
-        $utilityClassName = $this->getUtilityClassName();
-
         // initialize the prepared statements
         $this->categoryTextStmt =
-            $this->getConnection()->prepare($this->getUtilityClass()->find($utilityClassName::CATEGORY_TEXT));
+            $this->getConnection()->prepare($this->loadStatement(SqlStatementKeys::CATEGORY_TEXT));
     }
 
     /**

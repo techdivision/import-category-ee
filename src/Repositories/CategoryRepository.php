@@ -21,6 +21,7 @@
 namespace TechDivision\Import\Category\Ee\Repositories;
 
 use TechDivision\Import\Category\Ee\Utils\MemberNames;
+use TechDivision\Import\Category\Ee\Utils\SqlStatementKeys;
 
 /**
  * Repository implementation to load category data for Magento 2 EE.
@@ -52,12 +53,9 @@ class CategoryRepository extends \TechDivision\Import\Category\Repositories\Cate
         // initialize the parend class
         parent::init();
 
-        // load the utility class name
-        $utilityClassName = $this->getUtilityClassName();
-
         // initialize the prepared statements
         $this->categoryStmt =
-            $this->getConnection()->prepare($this->getUtilityClass()->find($utilityClassName::CATEGORY));
+            $this->getConnection()->prepare($this->loadStatement(SqlStatementKeys::CATEGORY));
     }
 
     /**
