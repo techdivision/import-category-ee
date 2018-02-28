@@ -70,35 +70,30 @@ class SqlStatementRepository extends \TechDivision\Import\Category\Repositories\
                 AND t0.entity_id IN (?)',
         SqlStatementKeys::CATEGORY =>
             'SELECT * FROM catalog_category_entity WHERE row_id = :row_id',
-        SqlStatementKeys::CATEGORY_DATETIME =>
+        SqlStatementKeys::CATEGORY_DATETIMES =>
             'SELECT *
                FROM catalog_category_entity_datetime
-              WHERE row_id = :row_id
-                AND attribute_id = :attribute_id
+              WHERE row_id = :pk
                 AND store_id = :store_id',
-        SqlStatementKeys::CATEGORY_DECIMAL =>
+        SqlStatementKeys::CATEGORY_DECIMALS =>
             'SELECT *
                FROM catalog_category_entity_decimal
-              WHERE row_id = :row_id
-                AND attribute_id = :attribute_id
+              WHERE row_id = :pk
                 AND store_id = :store_id',
-        SqlStatementKeys::CATEGORY_INT =>
+        SqlStatementKeys::CATEGORY_INTS =>
             'SELECT *
                FROM catalog_category_entity_int
-              WHERE row_id = :row_id
-                AND attribute_id = :attribute_id
+              WHERE row_id = :pk
                 AND store_id = :store_id',
-        SqlStatementKeys::CATEGORY_TEXT =>
+        SqlStatementKeys::CATEGORY_TEXTS =>
             'SELECT *
                FROM catalog_category_entity_text
-              WHERE row_id = :row_id
-                AND attribute_id = :attribute_id
+              WHERE row_id = :pk
                 AND store_id = :store_id',
-        SqlStatementKeys::CATEGORY_VARCHAR =>
+        SqlStatementKeys::CATEGORY_VARCHARS =>
             'SELECT *
                FROM catalog_category_entity_varchar
-              WHERE row_id = :row_id
-                AND attribute_id = :attribute_id
+              WHERE row_id = :pk
                 AND store_id = :store_id',
         SqlStatementKeys::CREATE_SEQUENCE_CATEGORY =>
             'INSERT INTO sequence_catalog_category VALUES ()',
