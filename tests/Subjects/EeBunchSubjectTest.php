@@ -66,12 +66,17 @@ class EeBunchSubjectTest extends \PHPUnit_Framework_TestCase
                                       ->setMethods(get_class_methods('TechDivision\Import\Category\Ee\Services\EeCategoryBunchProcessorInterface'))
                                       ->getMock();
 
+        // mock the event emitter
+        $mockEmitter = $this->getMockBuilder('League\Event\EmitterInterface')
+                            ->setMethods(\get_class_methods('League\Event\EmitterInterface'))
+                            ->getMock();
 
         // create the subject to be tested
         $this->subject = new EeBunchSubject(
             $mockRegistryProcessor,
             $mockGenerator,
             new ArrayCollection(),
+            $mockEmitter,
             $mockCategoryProcessor
         );
     }
