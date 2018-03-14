@@ -76,6 +76,7 @@
             <argument type="service" id="import.processor.registry"/>
             <argument type="service" id="import.generator.core.config.data.uid"/>
             <argument type="service" id="loggers"/>
+            <argument type="service" id="import.events.emitter"/>
             <argument type="service" id="import_category_ee.processor.category.bunch"/>
         </service>
 
