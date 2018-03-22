@@ -32,7 +32,7 @@ use TechDivision\Import\Category\Ee\Utils\SqlStatementKeys;
  * @link      https://github.com/techdivision/import-category-ee
  * @link      http://www.techdivision.com
  */
-class CategoryRepository extends \TechDivision\Import\Category\Repositories\CategoryRepository
+class CategoryRepository extends \TechDivision\Import\Category\Repositories\CategoryRepository implements CategoryRepositoryInterface
 {
 
     /**

@@ -37,7 +37,7 @@ interface EeCategoryBunchProcessorInterface extends CategoryBunchProcessorInterf
     /**
      * Return's the action with the sequence category CRUD methods.
      *
-     * @return \TechDivision\Import\Category\Ee\Actions\SequenceCategoryAction The action instance
+     * @return \TechDivision\Import\Category\Ee\Actions\SequenceCategoryActionInterface The action instance
      */
     public function getSequenceCategoryAction();
 
