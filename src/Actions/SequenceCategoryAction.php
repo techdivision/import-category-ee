@@ -32,7 +32,7 @@ use TechDivision\Import\Actions\AbstractAction;
  * @link      https://github.com/techdivision/import-category-ee
  * @link      http://www.techdivision.com
  */
-class SequenceCategoryAction extends AbstractAction
+class SequenceCategoryAction extends AbstractAction implements SequenceCategoryActionInterface
 {
 
     /**
