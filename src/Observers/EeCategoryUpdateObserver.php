@@ -20,6 +20,7 @@
 
 namespace TechDivision\Import\Category\Ee\Observers;
 
+use TechDivision\Import\Ee\Utils\SqlConstants;
 use TechDivision\Import\Utils\EntityStatus;
 use TechDivision\Import\Category\Ee\Utils\MemberNames;
 use TechDivision\Import\Category\Observers\CategoryUpdateObserver;
@@ -62,7 +63,7 @@ class EeCategoryUpdateObserver extends CategoryUpdateObserver
             $additionalAttr = array(
                 MemberNames::ENTITY_ID  => $this->nextIdentifier(),
                 MemberNames::CREATED_IN => 1,
-                MemberNames::UPDATED_IN => strtotime('+20 years')
+                MemberNames::UPDATED_IN => strtotime(SqlConstants::MAX_UNIXTIMESTAMP)
             );
 
             // merge and return the attributes
