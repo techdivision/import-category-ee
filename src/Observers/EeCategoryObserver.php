@@ -57,7 +57,7 @@ class EeCategoryObserver extends CategoryObserver
         $additionalAttr = array(
             MemberNames::ENTITY_ID  => $this->nextIdentifier(),
             MemberNames::CREATED_IN => 1,
-            MemberNames::UPDATED_IN => strtotime(SqlConstants::MAX_UNIXTIMESTAMP)
+            MemberNames::UPDATED_IN => SqlConstants::MAX_UNIXTIMESTAMP
         );
 
         // merge and return the attributes
