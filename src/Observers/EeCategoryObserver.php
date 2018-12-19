@@ -22,6 +22,7 @@ namespace TechDivision\Import\Category\Ee\Observers;
 
 use TechDivision\Import\Category\Ee\Utils\MemberNames;
 use TechDivision\Import\Category\Observers\CategoryObserver;
+use TechDivision\Import\Ee\Utils\SqlConstants;
 
 /**
  * Observer that create's the category itself for the Magento 2 EE edition.
@@ -56,7 +57,7 @@ class EeCategoryObserver extends CategoryObserver
         $additionalAttr = array(
             MemberNames::ENTITY_ID  => $this->nextIdentifier(),
             MemberNames::CREATED_IN => 1,
-            MemberNames::UPDATED_IN => strtotime('+20 years')
+            MemberNames::UPDATED_IN => SqlConstants::MAX_UNIXTIMESTAMP
         );
 
         // merge and return the attributes
