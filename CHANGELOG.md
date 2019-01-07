@@ -1,3 +1,13 @@
+# Version 6.0.0
+
+## Bugfixes
+
+* Add missing paramter for EeCategoryBunchProcessor::__construct() method
+
+## Features
+
+* None
+
 # Version 5.0.0
 
 ## Bugfixes

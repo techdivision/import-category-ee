@@ -25,6 +25,7 @@ use TechDivision\Import\Actions\UrlRewriteActionInterface;
 use TechDivision\Import\Assembler\CategoryAssemblerInterface;
 use TechDivision\Import\Repositories\UrlRewriteRepositoryInterface;
 use TechDivision\Import\Repositories\EavAttributeRepositoryInterface;
+use TechDivision\Import\Repositories\EavEntityTypeRepositoryInterface;
 use TechDivision\Import\Repositories\EavAttributeOptionValueRepositoryInterface;
 use TechDivision\Import\Category\Services\CategoryBunchProcessor;
 use TechDivision\Import\Category\Assemblers\CategoryAttributeAssemblerInterface;
@@ -75,6 +76,7 @@ class EeCategoryBunchProcessor extends CategoryBunchProcessor implements EeCateg
      * @param \TechDivision\Import\Repositories\EavAttributeOptionValueRepositoryInterface   $eavAttributeOptionValueRepository The EAV attribute option value repository to use
      * @param \TechDivision\Import\Repositories\EavAttributeRepositoryInterface              $eavAttributeRepository            The EAV attribute repository to use
      * @param \TechDivision\Import\Repositories\UrlRewriteRepositoryInterface                $urlRewriteRepository              The URL rewrite repository to use
+     * @param \TechDivision\Import\Repositories\EavEntityTypeRepositoryInterface             $eavEntityTypeRepository           The EAV entity type repository to use
      * @param \TechDivision\Import\Category\Actions\CategoryDatetimeActionInterface          $categoryDatetimeAction            The category datetime action to use
      * @param \TechDivision\Import\Category\Actions\CategoryDecimalActionInterface           $categoryDecimalAction             The category decimal action to use
      * @param \TechDivision\Import\Category\Actions\CategoryIntActionInterface               $categoryIntAction                 The category integer action to use
@@ -97,6 +99,7 @@ class EeCategoryBunchProcessor extends CategoryBunchProcessor implements EeCateg
         EavAttributeOptionValueRepositoryInterface $eavAttributeOptionValueRepository,
         EavAttributeRepositoryInterface $eavAttributeRepository,
         UrlRewriteRepositoryInterface $urlRewriteRepository,
+        EavEntityTypeRepositoryInterface $eavEntityTypeRepository,
         CategoryDatetimeActionInterface $categoryDatetimeAction,
         CategoryDecimalActionInterface $categoryDecimalAction,
         CategoryIntActionInterface $categoryIntAction,
@@ -123,6 +126,7 @@ class EeCategoryBunchProcessor extends CategoryBunchProcessor implements EeCateg
             $eavAttributeOptionValueRepository,
             $eavAttributeRepository,
             $urlRewriteRepository,
+            $eavEntityTypeRepository,
             $categoryDatetimeAction,
             $categoryDecimalAction,
             $categoryIntAction,
