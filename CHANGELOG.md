@@ -1,3 +1,14 @@
+# Version 8.0.0
+
+## Bugfixes
+
+* Fixed techdivision/import-category #55
+* Fixed techdivision/import-category #56
+
+## Features
+
+* None
+
 # Version 7.0.0
 
 ## Bugfixes

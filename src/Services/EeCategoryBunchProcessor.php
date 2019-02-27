@@ -12,7 +12,7 @@
  * PHP version 5
  *
  * @author    Tim Wagner <t.wagner@techdivision.com>
- * @copyright 2016 TechDivision GmbH <info@techdivision.com>
+ * @copyright 2019 TechDivision GmbH <info@techdivision.com>
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      https://github.com/techdivision/import-category-ee
  * @link      http://www.techdivision.com
@@ -28,8 +28,8 @@ use TechDivision\Import\Repositories\EavAttributeRepositoryInterface;
 use TechDivision\Import\Repositories\EavEntityTypeRepositoryInterface;
 use TechDivision\Import\Repositories\EavAttributeOptionValueRepositoryInterface;
 use TechDivision\Import\Category\Services\CategoryBunchProcessor;
-use TechDivision\Import\Category\Assemblers\CategoryAttributeAssemblerInterface;
-use TechDivision\Import\Category\Ee\Repositories\CategoryRepositoryInterface;
+use TechDivision\Import\Category\Assembler\CategoryAttributeAssemblerInterface;
+use TechDivision\Import\Category\Repositories\CategoryRepositoryInterface;
 use TechDivision\Import\Category\Repositories\CategoryIntRepositoryInterface;
 use TechDivision\Import\Category\Repositories\CategoryTextRepositoryInterface;
 use TechDivision\Import\Category\Repositories\CategoryVarcharRepositoryInterface;
@@ -47,7 +47,7 @@ use TechDivision\Import\Category\Ee\Actions\SequenceCategoryActionInterface;
  * A processor implementation providing methods to load sequence category data using a PDO connection.
  *
  * @author    Tim Wagner <t.wagner@techdivision.com>
- * @copyright 2016 TechDivision GmbH <info@techdivision.com>
+ * @copyright 2019 TechDivision GmbH <info@techdivision.com>
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      https://github.com/techdivision/import-category-ee
  * @link      http://www.techdivision.com
@@ -67,7 +67,7 @@ class EeCategoryBunchProcessor extends CategoryBunchProcessor implements EeCateg
      *
      * @param \TechDivision\Import\Connection\ConnectionInterface                            $connection                        The connection to use
      * @param \TechDivision\Import\Category\Ee\Actions\SequenceCategoryActionInterface       $sequenceCategoryAction            The sequence category action to use
-     * @param \TechDivision\Import\Category\Ee\Repositories\CategoryRepositoryInterface      $categoryRepository                The category repository to use
+     * @param \TechDivision\Import\Category\Repositories\CategoryRepositoryInterface         $categoryRepository                The category repository to use
      * @param \TechDivision\Import\Category\Repositories\CategoryDatetimeRepositoryInterface $categoryDatetimeRepository        The category datetime repository to use
      * @param \TechDivision\Import\Category\Repositories\CategoryDecimalRepositoryInterface  $categoryDecimalRepository         The category decimal repository to use
      * @param \TechDivision\Import\Category\Repositories\CategoryIntRepositoryInterface      $categoryIntRepository             The category integer repository to use
@@ -85,7 +85,7 @@ class EeCategoryBunchProcessor extends CategoryBunchProcessor implements EeCateg
      * @param \TechDivision\Import\Category\Actions\CategoryVarcharActionInterface           $categoryVarcharAction             The category varchar action to use
      * @param \TechDivision\Import\Actions\UrlRewriteActionInterface                         $urlRewriteAction                  The URL rewrite action to use
      * @param \TechDivision\Import\Assembler\CategoryAssemblerInterface                      $categoryAssembler                 The category assembler to use
-     * @param \TechDivision\Import\Category\Assemblers\CategoryAttributeAssemblerInterface   $categoryAttributeAssembler        The assembler to load the category attributes with
+     * @param \TechDivision\Import\Category\Assembler\CategoryAttributeAssemblerInterface    $categoryAttributeAssembler        The assembler to load the category attributes with
      */
     public function __construct(
         ConnectionInterface $connection,

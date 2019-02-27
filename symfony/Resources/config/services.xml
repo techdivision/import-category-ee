@@ -8,7 +8,7 @@
         <service id="import_category.repository.sql.statement" class="TechDivision\Import\Category\Ee\Repositories\SqlStatementRepository"/>
         <service id="import_category_ee.repository.sql.statement" class="TechDivision\Import\Category\Ee\Repositories\SqlStatementRepository"/>
 
-        <service id="import_category_ee.repository.category" class="TechDivision\Import\Category\Ee\Repositories\CategoryRepository">
+        <service id="import_category.repository.category" class="TechDivision\Import\Category\Ee\Repositories\CategoryRepository">
             <argument type="service" id="connection"/>
             <argument type="service" id="import_category_ee.repository.sql.statement"/>
         </service>
@@ -35,7 +35,7 @@
         <service id="import_category_ee.processor.category.bunch" class="TechDivision\Import\Category\Ee\Services\EeCategoryBunchProcessor">
             <argument type="service" id="connection"/>
             <argument type="service" id="import_category_ee.action.sequence.category"/>
-            <argument type="service" id="import_category_ee.repository.category"/>
+            <argument type="service" id="import_category.repository.category"/>
             <argument type="service" id="import_category.repository.category.datetime"/>
             <argument type="service" id="import_category.repository.category.decimal"/>
             <argument type="service" id="import_category.repository.category.int"/>
@@ -52,7 +52,7 @@
             <argument type="service" id="import_category.action.category.text"/>
             <argument type="service" id="import_category.action.category.varchar"/>
             <argument type="service" id="import.action.url.rewrite"/>
-            <argument type="service" id="import.assembler.category"/>
+            <argument type="service" id="import_category.assembler.category"/>
             <argument type="service" id="import_category.assembler.category.attribute"/>
         </service>
 
@@ -71,6 +71,22 @@
         </service>
         <service id="import_category_ee.observer.category.update" class="TechDivision\Import\Category\Ee\Observers\EeCategoryUpdateObserver">
             <argument type="service" id="import_category_ee.processor.category.bunch"/>
+        </service>
+        <service id="import_category_ee.observer.url.rewrite" class="TechDivision\Import\Category\Ee\Observers\EeUrlRewriteObserver">
+            <argument type="service" id="import_category_ee.processor.category.bunch"/>
+        </service>
+        <service id="import_category_ee.observer.url.rewrite.update" class="TechDivision\Import\Category\Ee\Observers\EeUrlRewriteUpdateObserver">
+            <argument type="service" id="import_category_ee.processor.category.bunch"/>
+        </service>
+        <service id="import_category_ee.observer.category.url.rewrite" class="TechDivision\Import\Category\Ee\Observers\EeCategoryUrlRewriteObserver">
+            <argument type="service" id="import_category_ee.processor.category.bunch"/>
+        </service>
+        <service id="import_category_ee.observer.clear.category" class="TechDivision\Import\Category\Ee\Observers\EeClearCategoryObserver">
+            <argument type="service" id="import_category_ee.processor.category.bunch"/>
+        </service>
+        <service id="import_category_ee.observer.url.key.and.path" class="TechDivision\Import\Category\Ee\Observers\EeUrlKeyAndPathObserver">
+            <argument type="service" id="import_category_ee.processor.category.bunch"/>
+            <argument type="service" id="import_category.filter.convert.literal.url"/>
         </service>
 
         <service id="import_category_ee.subject.bunch" class="TechDivision\Import\Category\Ee\Subjects\EeBunchSubject" shared="false">
