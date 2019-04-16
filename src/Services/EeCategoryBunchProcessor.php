@@ -20,8 +20,8 @@
 
 namespace TechDivision\Import\Category\Ee\Services;
 
+use TechDivision\Import\Actions\ActionInterface;
 use TechDivision\Import\Connection\ConnectionInterface;
-use TechDivision\Import\Actions\UrlRewriteActionInterface;
 use TechDivision\Import\Assembler\CategoryAssemblerInterface;
 use TechDivision\Import\Repositories\UrlRewriteRepositoryInterface;
 use TechDivision\Import\Repositories\EavAttributeRepositoryInterface;
@@ -35,12 +35,6 @@ use TechDivision\Import\Category\Repositories\CategoryTextRepositoryInterface;
 use TechDivision\Import\Category\Repositories\CategoryVarcharRepositoryInterface;
 use TechDivision\Import\Category\Repositories\CategoryDecimalRepositoryInterface;
 use TechDivision\Import\Category\Repositories\CategoryDatetimeRepositoryInterface;
-use TechDivision\Import\Category\Actions\CategoryActionInterface;
-use TechDivision\Import\Category\Actions\CategoryIntActionInterface;
-use TechDivision\Import\Category\Actions\CategoryTextActionInterface;
-use TechDivision\Import\Category\Actions\CategoryDecimalActionInterface;
-use TechDivision\Import\Category\Actions\CategoryVarcharActionInterface;
-use TechDivision\Import\Category\Actions\CategoryDatetimeActionInterface;
 use TechDivision\Import\Category\Ee\Actions\SequenceCategoryActionInterface;
 
 /**
@@ -77,13 +71,13 @@ class EeCategoryBunchProcessor extends CategoryBunchProcessor implements EeCateg
      * @param \TechDivision\Import\Repositories\EavAttributeRepositoryInterface              $eavAttributeRepository            The EAV attribute repository to use
      * @param \TechDivision\Import\Repositories\UrlRewriteRepositoryInterface                $urlRewriteRepository              The URL rewrite repository to use
      * @param \TechDivision\Import\Repositories\EavEntityTypeRepositoryInterface             $eavEntityTypeRepository           The EAV entity type repository to use
-     * @param \TechDivision\Import\Category\Actions\CategoryDatetimeActionInterface          $categoryDatetimeAction            The category datetime action to use
-     * @param \TechDivision\Import\Category\Actions\CategoryDecimalActionInterface           $categoryDecimalAction             The category decimal action to use
-     * @param \TechDivision\Import\Category\Actions\CategoryIntActionInterface               $categoryIntAction                 The category integer action to use
-     * @param \TechDivision\Import\Category\Actions\CategoryActionInterface                  $categoryAction                    The category action to use
-     * @param \TechDivision\Import\Category\Actions\CategoryTextActionInterface              $categoryTextAction                The category text action to use
-     * @param \TechDivision\Import\Category\Actions\CategoryVarcharActionInterface           $categoryVarcharAction             The category varchar action to use
-     * @param \TechDivision\Import\Actions\UrlRewriteActionInterface                         $urlRewriteAction                  The URL rewrite action to use
+     * @param \TechDivision\Import\Actions\ActionInterface                                   $categoryDatetimeAction            The category datetime action to use
+     * @param \TechDivision\Import\Actions\ActionInterface                                   $categoryDecimalAction             The category decimal action to use
+     * @param \TechDivision\Import\Actions\ActionInterface                                   $categoryIntAction                 The category integer action to use
+     * @param \TechDivision\Import\Actions\ActionInterface                                   $categoryAction                    The category action to use
+     * @param \TechDivision\Import\Actions\ActionInterface                                   $categoryTextAction                The category text action to use
+     * @param \TechDivision\Import\Actions\ActionInterface                                   $categoryVarcharAction             The category varchar action to use
+     * @param \TechDivision\Import\Actions\ActionInterface                                   $urlRewriteAction                  The URL rewrite action to use
      * @param \TechDivision\Import\Assembler\CategoryAssemblerInterface                      $categoryAssembler                 The category assembler to use
      * @param \TechDivision\Import\Category\Assembler\CategoryAttributeAssemblerInterface    $categoryAttributeAssembler        The assembler to load the category attributes with
      */
@@ -100,13 +94,13 @@ class EeCategoryBunchProcessor extends CategoryBunchProcessor implements EeCateg
         EavAttributeRepositoryInterface $eavAttributeRepository,
         UrlRewriteRepositoryInterface $urlRewriteRepository,
         EavEntityTypeRepositoryInterface $eavEntityTypeRepository,
-        CategoryDatetimeActionInterface $categoryDatetimeAction,
-        CategoryDecimalActionInterface $categoryDecimalAction,
-        CategoryIntActionInterface $categoryIntAction,
-        CategoryActionInterface $categoryAction,
-        CategoryTextActionInterface $categoryTextAction,
-        CategoryVarcharActionInterface $categoryVarcharAction,
-        UrlRewriteActionInterface $urlRewriteAction,
+        ActionInterface $categoryDatetimeAction,
+        ActionInterface $categoryDecimalAction,
+        ActionInterface $categoryIntAction,
+        ActionInterface $categoryAction,
+        ActionInterface $categoryTextAction,
+        ActionInterface $categoryVarcharAction,
+        ActionInterface $urlRewriteAction,
         CategoryAssemblerInterface $categoryAssembler,
         CategoryAttributeAssemblerInterface $categoryAttributeAssembler
     ) {

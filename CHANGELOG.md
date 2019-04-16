@@ -1,3 +1,15 @@
+# Version 9.0.0
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Add composite observers to minimize configuration complexity
+* Replace DI specific ActionInterfaces with generic ActionInterface in EeCategoryBunchProcessor
+* Switch to latest techdivision/import-category 8.0.* and techdivision/import-ee 6.0.* version as dependency
+
 # Version 8.0.0
 
 ## Bugfixes

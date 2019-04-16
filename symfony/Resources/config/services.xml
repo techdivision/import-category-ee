@@ -89,6 +89,78 @@
             <argument type="service" id="import_category.filter.convert.literal.url"/>
         </service>
 
+        <!--
+         | The DI configuration for the composite observers of the category replace operation.
+         |-->
+        <service id="import_category_ee.observer.composite.replace" class="TechDivision\Import\Observers\GenericCompositeObserver">
+            <call method="addObserver">
+                <argument id="import_category.observer.category.copy" type="service"/>
+            </call>
+            <call method="addObserver">
+                <argument id="import_category_ee.observer.clear.category" type="service"/>
+            </call>
+        </service>
+
+        <!--
+         | The DI configuration for the composite observers of the category create replace operation.
+         |-->
+        <service id="import_category_ee.observer.composite.create.replace" class="TechDivision\Import\Observers\GenericCompositeObserver">
+            <call method="addObserver">
+                <argument id="import_category_ee.observer.url.key.and.path" type="service"/>
+            </call>
+            <call method="addObserver">
+                <argument id="import.observer.attribute.set" type="service"/>
+            </call>
+            <call method="addObserver">
+                <argument id="import.observer.additional.attribute" type="service"/>
+            </call>
+            <call method="addObserver">
+                <argument id="import_category.observer.file.upload" type="service"/>
+            </call>
+            <call method="addObserver">
+                <argument id="import_category_ee.observer.category" type="service"/>
+            </call>
+            <call method="addObserver">
+                <argument id="import_category_ee.observer.category.attribute" type="service"/>
+            </call>
+            <call method="addObserver">
+                <argument id="import_category.observer.category.url.rewrite" type="service"/>
+            </call>
+            <call method="addObserver">
+                <argument id="import_category_ee.observer.clean.up" type="service"/>
+            </call>
+        </service>
+
+        <!--
+         | The DI configuration for the composite observers of the category add-update operation.
+         |-->
+        <service id="import_category_ee.observer.composite.add_update" class="TechDivision\Import\Observers\GenericCompositeObserver">
+            <call method="addObserver">
+                <argument id="import_category_ee.observer.url.key.and.path" type="service"/>
+            </call>
+            <call method="addObserver">
+                <argument id="import.observer.attribute.set" type="service"/>
+            </call>
+            <call method="addObserver">
+                <argument id="import.observer.additional.attribute" type="service"/>
+            </call>
+            <call method="addObserver">
+                <argument id="import_category.observer.file.upload" type="service"/>
+            </call>
+            <call method="addObserver">
+                <argument id="import_category_ee.observer.category.update" type="service"/>
+            </call>
+            <call method="addObserver">
+                <argument id="import_category_ee.observer.category.attribute.update" type="service"/>
+            </call>
+            <call method="addObserver">
+                <argument id="import_category.observer.category.url.rewrite" type="service"/>
+            </call>
+            <call method="addObserver">
+                <argument id="import_category_ee.observer.clean.up" type="service"/>
+            </call>
+        </service>
+
         <service id="import_category_ee.subject.bunch" class="TechDivision\Import\Category\Ee\Subjects\EeBunchSubject" shared="false">
             <argument type="service" id="import.processor.registry"/>
             <argument type="service" id="import.generator.core.config.data.uid"/>
