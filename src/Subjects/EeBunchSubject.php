@@ -22,6 +22,7 @@ namespace TechDivision\Import\Category\Ee\Subjects;
 
 use TechDivision\Import\Category\Subjects\BunchSubject;
 use TechDivision\Import\Category\Ee\Utils\MemberNames;
+use TechDivision\Import\Category\Utils\RegistryKeys;
 
 /**
  * A SLSB that handles the process to import category bunches.
@@ -59,13 +60,46 @@ class EeBunchSubject extends BunchSubject
     public function setUp($serial)
     {
 
+        // prepare the callbacks
+        parent::setUp($serial);
+
+        // load the status of the actual import
+        $status = $this->getRegistryProcessor()->getAttribute($serial);
+
         // load the available category path => row ID mappings
-        foreach ($this->getCategoryBunchProcessor()->getCategoriesWithResolvedPath() as $resolvedPath => $category) {
+        foreach ($this->categories as $resolvedPath => $category) {
             $this->pathRowIdMapping[$this->unifyPath($resolvedPath)] = $category[MemberNames::ROW_ID];
         }
 
-        // prepare the callbacks
-        parent::setUp($serial);
+        // load the category path => row ID mappings from the previous subject
+        if (isset($status[RegistryKeys::PATH_ROW_ID_MAPPING])) {
+            $this->pathRowIdMapping = array_merge($this->pathRowIdMapping, $status[RegistryKeys::PATH_ROW_ID_MAPPING]);
+        }
+    }
+
+    /**
+     * Clean up the global data after importing the variants.
+     *
+     * @param string $serial The serial of the actual import
+     *
+     * @return void
+     */
+    public function tearDown($serial)
+    {
+
+        // load the registry processor
+        $registryProcessor = $this->getRegistryProcessor();
+
+        // update the status with the actual path => row ID mappings
+        $registryProcessor->mergeAttributesRecursive(
+            $serial,
+            array(
+                RegistryKeys::PATH_ROW_ID_MAPPING => $this->pathRowIdMapping
+            )
+        );
+
+        // invoke the parent method
+        parent::tearDown($serial);
     }
 
     /**
@@ -131,7 +165,11 @@ class EeBunchSubject extends BunchSubject
         }
 
         // throw an exception if not
-        throw new \Exception(sprintf('Can\'t map path %s to any row ID', $path));
+        throw new \Exception(
+            $this->appendExceptionSuffix(
+                sprintf('Can\'t map path %s to any row ID', $path)
+            )
+        );
     }
 
     /**

@@ -1,3 +1,13 @@
+# Version 12.0.0
+
+## Bugfixes
+
+* Fixed multi bunch import issue
+
+## Features
+
+* Switch to latest techdivision/import-category 11.0.*
+
 # Version 11.0.0
 
 ## Bugfixes
