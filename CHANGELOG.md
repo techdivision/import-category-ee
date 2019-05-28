@@ -1,3 +1,13 @@
+# Version 11.0.0
+
+## Bugfixes
+
+* Fixed techdivision/import#147
+
+## Features
+
+* Switch to latest techdivision/import-category 10.0.*
+
 # Version 10.0.0
 
 ## Bugfixes

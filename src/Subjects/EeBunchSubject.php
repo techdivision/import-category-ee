@@ -20,7 +20,6 @@
 
 namespace TechDivision\Import\Category\Ee\Subjects;
 
-use TechDivision\Import\Utils\RegistryKeys;
 use TechDivision\Import\Category\Subjects\BunchSubject;
 use TechDivision\Import\Category\Ee\Utils\MemberNames;
 
@@ -62,7 +61,7 @@ class EeBunchSubject extends BunchSubject
 
         // load the available category path => row ID mappings
         foreach ($this->getCategoryBunchProcessor()->getCategoriesWithResolvedPath() as $resolvedPath => $category) {
-            $this->pathRowIdMapping[$resolvedPath] = $category[MemberNames::ROW_ID];
+            $this->pathRowIdMapping[$this->unifyPath($resolvedPath)] = $category[MemberNames::ROW_ID];
         }
 
         // prepare the callbacks
@@ -100,7 +99,7 @@ class EeBunchSubject extends BunchSubject
      */
     public function addPathRowIdMapping($path)
     {
-        $this->pathRowIdMapping[$path] = $this->getLastRowId();
+        $this->pathRowIdMapping[$this->unifyPath($path)] = $this->getLastRowId();
     }
 
     /**
@@ -112,7 +111,7 @@ class EeBunchSubject extends BunchSubject
      */
     public function removePathRowIdMapping($path)
     {
-        unset($this->pathRowIdMapping[$path]);
+        unset($this->pathRowIdMapping[$this->unifyPath($path)]);
     }
 
     /**
@@ -127,8 +126,8 @@ class EeBunchSubject extends BunchSubject
     {
 
         // query whether or not a entity ID for the passed path has been mapped
-        if (isset($this->pathRowIdMapping[$path])) {
-            return $this->pathRowIdMapping[$path];
+        if (isset($this->pathRowIdMapping[$unifiedPath = $this->unifyPath($path)])) {
+            return $this->pathRowIdMapping[$unifiedPath];
         }
 
         // throw an exception if not
