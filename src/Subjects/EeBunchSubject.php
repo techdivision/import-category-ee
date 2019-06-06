@@ -64,7 +64,7 @@ class EeBunchSubject extends BunchSubject
         parent::setUp($serial);
 
         // load the status of the actual import
-        $status = $this->getRegistryProcessor()->getAttribute($serial);
+        $status = $this->getRegistryProcessor()->getAttribute(RegistryKeys::STATUS);
 
         // load the available category path => row ID mappings
         foreach ($this->categories as $resolvedPath => $category) {
@@ -92,7 +92,7 @@ class EeBunchSubject extends BunchSubject
 
         // update the status with the actual path => row ID mappings
         $registryProcessor->mergeAttributesRecursive(
-            $serial,
+            RegistryKeys::STATUS,
             array(
                 RegistryKeys::PATH_ROW_ID_MAPPING => $this->pathRowIdMapping
             )
