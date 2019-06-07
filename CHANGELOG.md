@@ -1,3 +1,13 @@
+# Version 13.0.0
+
+## Bugfixes
+
+* Fixed multi bunch import issue
+
+## Features
+
+* Switch to latest techdivision/import-ee 9.0.* and techdivision/import-category 12.0.*
+
 # Version 12.0.0
 
 ## Bugfixes
