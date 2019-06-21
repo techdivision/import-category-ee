@@ -1,3 +1,13 @@
+# Version 14.0.0
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Switch to latest techdivision/import-ee 10.* and techdivision/import-category 13.*
+
 # Version 13.0.0
 
 ## Bugfixes
