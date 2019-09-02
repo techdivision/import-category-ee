@@ -1,3 +1,13 @@
+# Version 18.0.0
+
+## Bugfixes
+
+* Fixed techdivision/import-category-ee#34
+
+## Features
+
+* None
+
 # Version 17.0.0
 
 ## Bugfixes
