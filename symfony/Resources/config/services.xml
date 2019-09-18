@@ -5,9 +5,12 @@
 
     <services>
 
-        <service id="import_category.repository.sql.statement" class="TechDivision\Import\Category\Ee\Repositories\SqlStatementRepository"/>
-        <service id="import_category_ee.repository.sql.statement" class="TechDivision\Import\Category\Ee\Repositories\SqlStatementRepository"/>
-
+        <service id="import_category.repository.sql.statement" class="TechDivision\Import\Category\Ee\Repositories\SqlStatementRepository">
+            <argument type="service" id="import.util.sql.compilers"/>
+        </service>
+        <service id="import_category_ee.repository.sql.statement" class="TechDivision\Import\Category\Ee\Repositories\SqlStatementRepository">
+            <argument type="service" id="import.util.sql.compilers"/>
+        </service>
         <service id="import_category.repository.category" class="TechDivision\Import\Category\Ee\Repositories\CategoryRepository">
             <argument type="service" id="connection"/>
             <argument type="service" id="import_category_ee.repository.sql.statement"/>
