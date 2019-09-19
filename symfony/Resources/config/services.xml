@@ -29,7 +29,7 @@
             <argument type="service" id="import_category_ee.action.processor.sequence.category.create"/>
         </service>
 
-        <service id="import_category_ee.action.category" class="TechDivision\Import\Category\Actions\CategoryAction">
+        <service id="import_category_ee.action.category" class="TechDivision\Import\Actions\GenericIdentifierAction">
             <argument type="service" id="import_category.action.processor.category.create"/>
             <argument type="service" id="import_category_ee.action.processor.category.update"/>
             <argument type="service" id="import_category.action.processor.category.delete"/>
