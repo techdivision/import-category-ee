@@ -1,7 +1,6 @@
 {
   "magento-edition": "EE",
   "magento-version": "2.3.0",
-  "operation-name" : "add-update",
   "archive-artefacts" : true,
   "debug-mode" : false,
   "entity-type-code" : "catalog_category",
@@ -50,6 +49,23 @@
   ],
   "operations" : [
     {
+      "name" : "move-files",
+      "plugins" : [
+        {
+          "id": "import.plugin.subject",
+          "subjects" : [
+            {
+              "id": "import.subject.move.files",
+              "file-resolver": {
+                "id": "import.subject.file.resolver.move.files"
+              },
+              "ok-file-needed": true
+            }
+          ]
+        }
+      ]
+    },
+    {
       "name" : "convert",
       "plugins" : [
         {
@@ -73,13 +89,6 @@
             }
           ],
           "subjects": [
-            {
-              "id": "import.subject.move.files",
-              "file-resolver": {
-                "prefix": "product-import"
-              },
-              "ok-file-needed": true
-            },
             {
               "id": "import_converter_product_category.subject.converter",
               "create-imported-file": false,
@@ -107,13 +116,6 @@
         {
           "id": "import.plugin.subject",
           "subjects" : [
-            {
-              "id": "import.subject.move.files",
-              "file-resolver": {
-                "prefix": "category-import"
-              },
-              "ok-file-needed": true
-            },
             {
               "id": "import_category_ee.subject.bunch",
               "file-resolver": {
@@ -143,13 +145,6 @@
         {
           "id": "import.plugin.subject",
           "subjects": [
-            {
-              "id": "import.subject.move.files",
-              "file-resolver": {
-                "prefix": "category-import"
-              },
-              "ok-file-needed": true
-            },
             {
               "id": "import_category_ee.subject.bunch",
               "file-resolver": {
@@ -226,13 +221,6 @@
         {
           "id": "import.plugin.subject",
           "subjects": [
-            {
-              "id": "import.subject.move.files",
-              "file-resolver": {
-                "prefix": "category-import"
-              },
-              "ok-file-needed": true
-            },
             {
               "id": "import_category_ee.subject.bunch",
               "file-resolver": {
