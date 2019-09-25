@@ -6,6 +6,7 @@
 
 ## Features
 
+* Add techdivision/import#146
 * Add techdivision/import-cli-simple#216
 * Remove unnecessary identifiers from configuration
 * Switch to latest techdivision/import-ee 14.* and techdivision/import-category 17.*

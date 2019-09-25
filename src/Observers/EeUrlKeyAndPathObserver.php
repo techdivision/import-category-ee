@@ -39,4 +39,16 @@ class EeUrlKeyAndPathObserver extends \TechDivision\Import\Category\Observers\Ur
      * @var \TechDivision\Import\Category\Ee\Observers\EeCategoryObserverTrait
      */
     use EeCategoryObserverTrait;
+
+    /**
+     * Temporarily persist's the IDs of the passed category.
+     *
+     * @param array $category The category to temporarily persist the IDs for
+     *
+     * @return void
+     */
+    protected function setIds(array $category)
+    {
+        $this->setLastRowId(isset($category[$this->getPkMemberName()]) ? $category[$this->getPkMemberName()] : null);
+    }
 }

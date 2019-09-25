@@ -22,8 +22,8 @@ namespace TechDivision\Import\Category\Ee\Subjects;
 
 use TechDivision\Import\Utils\StoreViewCodes;
 use TechDivision\Import\Category\Utils\RegistryKeys;
-use TechDivision\Import\Category\Subjects\BunchSubject;
 use TechDivision\Import\Category\Ee\Utils\MemberNames;
+use TechDivision\Import\Category\Subjects\ExportFromProductSubject;
 
 /**
  * A SLSB that handles the process to import category bunches.
@@ -34,7 +34,7 @@ use TechDivision\Import\Category\Ee\Utils\MemberNames;
  * @link      https://github.com/techdivision/import-category-ee
  * @link      http://www.techdivision.com
  */
-class EeBunchSubject extends BunchSubject
+class EeExportFromProductSubject extends ExportFromProductSubject
 {
 
     /**

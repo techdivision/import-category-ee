@@ -5,6 +5,11 @@
 
     <services>
 
+        <service id="import_category.util.url.key" class="TechDivision\Import\Utils\UrlKeyUtil">
+            <argument type="service" id="configuration"/>
+            <argument type="service" id="import_category_ee.processor.category.bunch"/>
+        </service>
+
         <service id="import_category.repository.sql.statement" class="TechDivision\Import\Category\Ee\Repositories\SqlStatementRepository">
             <argument type="service" id="import.util.sql.compilers"/>
         </service>
@@ -90,6 +95,7 @@
         <service id="import_category_ee.observer.url.key.and.path" class="TechDivision\Import\Category\Ee\Observers\EeUrlKeyAndPathObserver">
             <argument type="service" id="import_category_ee.processor.category.bunch"/>
             <argument type="service" id="import_category.filter.convert.literal.url"/>
+            <argument type="service" id="import_category.util.url.key"/>
         </service>
 
         <!--
@@ -165,6 +171,12 @@
         </service>
 
         <service id="import_category_ee.subject.bunch" class="TechDivision\Import\Category\Ee\Subjects\EeBunchSubject" shared="false">
+            <argument type="service" id="import.processor.registry"/>
+            <argument type="service" id="import.generator.core.config.data.uid"/>
+            <argument type="service" id="loggers"/>
+            <argument type="service" id="import.events.emitter"/>
+        </service>
+        <service id="import_category_ee.subject.export.from.product" class="TechDivision\Import\Category\Ee\Subjects\EeExportFromProductSubject" shared="false">
             <argument type="service" id="import.processor.registry"/>
             <argument type="service" id="import.generator.core.config.data.uid"/>
             <argument type="service" id="loggers"/>
