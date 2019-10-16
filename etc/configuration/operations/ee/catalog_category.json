@@ -16,6 +16,10 @@
           "general/general/cache-warmer",
           "general/general/global-data",
           "ee/catalog_category/replace",
+          "ee/catalog_category/replace.create",
+          "ee/catalog_category/replace.path",
+          "ee/catalog_category/replace.url-rewrite",
+          "general/catalog_category/children-count",
           "general/general/archive-artefacts",
           "general/general/clean-up"
         ],
@@ -25,6 +29,9 @@
           "general/general/cache-warmer",
           "general/general/global-data",
           "ee/catalog_category/add-update",
+          "ee/catalog_category/add-update.path",
+          "ee/catalog_category/add-update.url-rewrite",
+          "general/catalog_category/children-count",
           "general/general/archive-artefacts",
           "general/general/clean-up"
         ]
@@ -34,42 +41,6 @@
   "operations": {
     "ee": {
       "catalog_category": [
-        {
-          "name": "convert",
-          "plugins": [
-            {
-              "id": "import_converter.plugin.exportable.converter.generic",
-              "params": {
-                "exportable-artefact-types": [
-                  "category-import"
-                ]
-              },
-              "listeners": [
-                {
-                  "plugin.export.start": [
-                    "import_converter_product_category.listeners.reduce.category"
-                  ]
-                }
-              ],
-              "subjects": [
-                {
-                  "id": "import_converter_product_category.subject.converter",
-                  "create-imported-file": false,
-                  "file-resolver": {
-                    "prefix": "product-import"
-                  },
-                  "observers": [
-                    {
-                      "import": [
-                        "import_converter_product_category.observer.product.to.category"
-                      ]
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
         {
           "name": "delete",
           "plugins": [
@@ -111,7 +82,17 @@
                       ]
                     }
                   ]
-                },
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "replace.create",
+          "plugins": [
+            {
+              "id": "import.plugin.subject",
+              "subjects": [
                 {
                   "id": "import_category_ee.subject.bunch",
                   "file-resolver": {
@@ -127,7 +108,17 @@
                       ]
                     }
                   ]
-                },
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "replace.path",
+          "plugins": [
+            {
+              "id": "import.plugin.subject",
+              "subjects": [
                 {
                   "id": "import_category_ee.subject.bunch",
                   "file-resolver": {
@@ -140,7 +131,17 @@
                       ]
                     }
                   ]
-                },
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "replace.url-rewrite",
+          "plugins": [
+            {
+              "id": "import.plugin.subject",
+              "subjects": [
                 {
                   "id": "import_category_ee.subject.bunch",
                   "file-resolver": {
@@ -155,9 +156,6 @@
                   ]
                 }
               ]
-            },
-            {
-              "id": "import_category.plugin.children.count"
             }
           ]
         },
@@ -182,7 +180,17 @@
                       ]
                     }
                   ]
-                },
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "add-update.path",
+          "plugins": [
+            {
+              "id": "import.plugin.subject",
+              "subjects": [
                 {
                   "id": "import_category_ee.subject.bunch",
                   "file-resolver": {
@@ -195,7 +203,17 @@
                       ]
                     }
                   ]
-                },
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "add-update.url-rewrite",
+          "plugins": [
+            {
+              "id": "import.plugin.subject",
+              "subjects": [
                 {
                   "id": "import_category_ee.subject.bunch",
                   "file-resolver": {
@@ -210,9 +228,6 @@
                   ]
                 }
               ]
-            },
-            {
-              "id": "import_category.plugin.children.count"
             }
           ]
         }
