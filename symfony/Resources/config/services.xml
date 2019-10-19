@@ -176,12 +176,6 @@
             <argument type="service" id="loggers"/>
             <argument type="service" id="import.events.emitter"/>
         </service>
-        <service id="import_category_ee.subject.export.from.product" class="TechDivision\Import\Category\Ee\Subjects\EeExportFromProductSubject" shared="false">
-            <argument type="service" id="import.processor.registry"/>
-            <argument type="service" id="import.generator.core.config.data.uid"/>
-            <argument type="service" id="loggers"/>
-            <argument type="service" id="import.events.emitter"/>
-        </service>
 
         <service id="import_category_ee.plugin.children.count" class="TechDivision\Import\Category\Ee\Plugins\EeChildrenCountPlugin">
             <argument type="service" id="import_app_simple.simple"/>
