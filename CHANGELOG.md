@@ -1,3 +1,13 @@
+# Version 17.1.1
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Clean-Up configuration files
+
 # Version 17.1.0
 
 ## Bugfixes
