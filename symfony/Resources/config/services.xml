@@ -90,18 +90,6 @@
         </service>
 
         <!--
-         | The DI configuration for the composite observers of the category replace operation.
-         |-->
-        <service id="import_category_ee.observer.composite.replace" class="TechDivision\Import\Observers\GenericCompositeObserver">
-            <call method="addObserver">
-                <argument id="import_category.observer.category.copy" type="service"/>
-            </call>
-            <call method="addObserver">
-                <argument id="import_category_ee.observer.clear.category" type="service"/>
-            </call>
-        </service>
-
-        <!--
          | The DI configuration for the composite observers of the category create replace operation.
          |-->
         <service id="import_category_ee.observer.composite.create.replace" class="TechDivision\Import\Observers\GenericCompositeObserver">
@@ -162,6 +150,12 @@
         </service>
 
         <service id="import_category_ee.subject.bunch" class="TechDivision\Import\Category\Ee\Subjects\EeBunchSubject" shared="false">
+            <argument type="service" id="import.processor.registry"/>
+            <argument type="service" id="import.generator.core.config.data.uid"/>
+            <argument type="service" id="loggers"/>
+            <argument type="service" id="import.events.emitter"/>
+        </service>
+        <service id="import_category_ee.subject.sortable.bunch" class="TechDivision\Import\Category\Ee\Subjects\EeSortableBunchSubject" shared="false">
             <argument type="service" id="import.processor.registry"/>
             <argument type="service" id="import.generator.core.config.data.uid"/>
             <argument type="service" id="loggers"/>

@@ -1,3 +1,13 @@
+# Version 17.1.0
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Add functionality to sort categories by path and store view code to allow importing unsorted files
+
 # Version 17.0.2
 
 ## Bugfixes

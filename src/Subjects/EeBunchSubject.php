@@ -25,7 +25,7 @@ use TechDivision\Import\Category\Ee\Utils\MemberNames;
 use TechDivision\Import\Category\Utils\RegistryKeys;
 
 /**
- * A SLSB that handles the process to import category bunches.
+ * The subject implementation that handles the business logic to persist categories.
  *
  * @author    Tim Wagner <t.wagner@techdivision.com>
  * @copyright 2019 TechDivision GmbH <info@techdivision.com>
