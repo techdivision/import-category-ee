@@ -11,8 +11,9 @@
           "general/general/move-files",
           "general/general/cache-warmer",
           "general/general/global-data",
+          "ee/catalog_category/sort",
+          "ee/catalog_category/delete",
           "ee/catalog_category/replace",
-          "ee/catalog_category/replace.create",
           "ee/catalog_category/replace.path",
           "ee/catalog_category/replace.url-rewrite",
           "general/catalog_category/children-count"
@@ -21,6 +22,7 @@
           "general/general/move-files",
           "general/general/cache-warmer",
           "general/general/global-data",
+          "ee/catalog_category/sort",
           "ee/catalog_category/add-update",
           "ee/catalog_category/add-update.path",
           "ee/catalog_category/add-update.url-rewrite",
@@ -32,6 +34,37 @@
   "operations": {
     "ee": {
       "catalog_category": [
+        {
+          "name": "sort",
+          "plugins": [
+            {
+              "id": "import.plugin.subject",
+              "subjects": [
+	            {
+	              "id": "import_category_ee.subject.sortable.bunch",
+                  "create-imported-file": false,
+	              "file-resolver": {
+	                "prefix": "category-import"
+	              },
+	              "listeners": [
+	                {
+	                  "subject.export.start": [
+	                    "import_category.listener.sort.category"
+	                  ]
+	                }
+	              ],
+	              "observers": [
+	                {
+	                  "import": [
+	                    "import_category.observer.category.copy"
+	                  ]
+	                }
+	              ]
+	            }
+              ]
+            }
+          ]
+        },
         {
           "name": "delete",
           "plugins": [
@@ -57,29 +90,6 @@
         },
         {
           "name": "replace",
-          "plugins": [
-            {
-              "id": "import.plugin.subject",
-              "subjects": [
-                {
-                  "id": "import_category_ee.subject.bunch",
-                  "file-resolver": {
-                    "prefix": "category-import"
-                  },
-                  "observers": [
-                    {
-                      "import": [
-                        "import_category_ee.observer.composite.replace"
-                      ]
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "name": "replace.create",
           "plugins": [
             {
               "id": "import.plugin.subject",
@@ -159,7 +169,7 @@
                 {
                   "id": "import_category_ee.subject.bunch",
                   "file-resolver": {
-                    "prefix": "category-import"
+                    "prefix": "category-create"
                   },
                   "params": {
                     "copy-images": false
