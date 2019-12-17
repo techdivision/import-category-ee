@@ -1,48 +1,10 @@
 {
-  "shortcuts": {
-    "ee": {
-      "catalog_category": {
-        "validate": [
-          "general/general/global-data",
-          "general/general/move-files",
-          "general/catalog_category/validate"
-        ],
-        "delete": [
-          "general/general/move-files",
-          "general/general/global-data",
-          "ee/catalog_category/delete"
-        ],
-        "replace": [
-          "general/general/move-files",
-          "general/general/cache-warmer",
-          "general/general/global-data",
-          "ee/catalog_category/sort",
-          "ee/catalog_category/delete",
-          "ee/catalog_category/replace",
-          "ee/catalog_category/replace.path",
-          "ee/catalog_category/replace.url-rewrite",
-          "general/catalog_category/children-count"
-        ],
-        "add-update": [
-          "general/general/move-files",
-          "general/general/cache-warmer",
-          "general/general/global-data",
-          "ee/catalog_category/sort",
-          "ee/catalog_category/add-update",
-          "ee/catalog_category/add-update.path",
-          "ee/catalog_category/add-update.url-rewrite",
-          "general/catalog_category/children-count"
-        ]
-      }
-    }
-  },
   "operations": {
     "ee": {
-      "catalog_category": [
-        {
-          "name": "sort",
-          "plugins": [
-            {
+      "catalog_category": {
+        "sort": {
+          "plugins": {
+            "subject": {
               "id": "import.plugin.subject",
               "subjects": [
 	            {
@@ -68,12 +30,11 @@
 	            }
               ]
             }
-          ]
+          }
         },
-        {
-          "name": "delete",
-          "plugins": [
-            {
+        "delete": {
+          "plugins": {
+            "subject": {
               "id": "import.plugin.subject",
               "subjects": [
                 {
@@ -91,12 +52,11 @@
                 }
               ]
             }
-          ]
+          }
         },
-        {
-          "name": "replace",
-          "plugins": [
-            {
+        "replace": {
+          "plugins": {
+            "subject": {
               "id": "import.plugin.subject",
               "subjects": [
                 {
@@ -117,12 +77,11 @@
                 }
               ]
             }
-          ]
+          }
         },
-        {
-          "name": "replace.path",
-          "plugins": [
-            {
+        "replace.path": {
+          "plugins": {
+            "subject": {
               "id": "import.plugin.subject",
               "subjects": [
                 {
@@ -140,12 +99,11 @@
                 }
               ]
             }
-          ]
+          }
         },
-        {
-          "name": "replace.url-rewrite",
-          "plugins": [
-            {
+        "replace.url-rewrite": {
+          "plugins": {
+            "subject": {
               "id": "import.plugin.subject",
               "subjects": [
                 {
@@ -163,12 +121,11 @@
                 }
               ]
             }
-          ]
+          }
         },
-        {
-          "name": "add-update",
-          "plugins": [
-            {
+        "add-update": {
+          "plugins": {
+            "subject": {
               "id": "import.plugin.subject",
               "subjects": [
                 {
@@ -189,12 +146,11 @@
                 }
               ]
             }
-          ]
+          }
         },
-        {
-          "name": "add-update.path",
-          "plugins": [
-            {
+        "add-update.path": {
+          "plugins": {
+            "subject": {
               "id": "import.plugin.subject",
               "subjects": [
                 {
@@ -212,12 +168,11 @@
                 }
               ]
             }
-          ]
+          }
         },
-        {
-          "name": "add-update.url-rewrite",
-          "plugins": [
-            {
+        "add-update.url-rewrite": {
+          "plugins": {
+            "subject": {
               "id": "import.plugin.subject",
               "subjects": [
                 {
@@ -235,9 +190,9 @@
                 }
               ]
             }
-          ]
+          }
         }
-      ]
+      }
     }
   }
 }
