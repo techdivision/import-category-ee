@@ -1,3 +1,13 @@
+# Version 18.0.2
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Extract dev autoloading
+
 # Version 18.0.1
 
 ## Bugfixes
