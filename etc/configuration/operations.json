@@ -2,6 +2,13 @@
   "operations": {
     "ee": {
       "catalog_category": {
+        "children-count": {
+          "plugins": {
+            "children-count": {
+              "id": "import_category_ee.plugin.children.count"
+            }
+          }
+        },
         "sort": {
           "plugins": {
             "subject": {

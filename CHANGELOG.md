@@ -1,3 +1,13 @@
+# Version 18.0.3
+
+## Bugfixes
+
+* Fixed invalid configuration for children count plugin
+
+## Features
+
+* None
+
 # Version 18.0.2
 
 ## Bugfixes
