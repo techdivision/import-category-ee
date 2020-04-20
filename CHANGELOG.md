@@ -1,19 +1,8 @@
-# Version 19.0.0
-
-## Bugfixes
-
-* Replace Zend/Filter with new Laminas/Filter library
-
-## Features
-
-* None
-
 # Version 18.0.3
 
 ## Bugfixes
 
 * Fixed invalid configuration for children count plugin
-* Switch to latest techdivision/import-ee 15.* and techdivision/import-category 18.*
 
 ## Features
 
