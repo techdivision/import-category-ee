@@ -6,7 +6,7 @@
 
 ## Features
 
-* None
+* Add techdivision/import-cli-simple#244
 
 # Version 18.0.3
 
