@@ -7,4 +7,5 @@
  [![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/g/techdivision/import-category-ee/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/techdivision/import-category-ee/?branch=master) 
  [![Code Coverage](https://img.shields.io/scrutinizer/coverage/g/techdivision/import-category-ee/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/techdivision/import-category-ee/?branch=master)
 
+Please visit the M2IF [website](https://m2if.com) for documentation and additional information
  
