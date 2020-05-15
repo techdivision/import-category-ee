@@ -1,3 +1,13 @@
+# Version 19.0.2
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Add default configuration for media + images file dirctory
+
 # Version 19.0.1
 
 ## Bugfixes
