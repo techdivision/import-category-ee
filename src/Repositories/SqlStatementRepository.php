@@ -148,45 +148,10 @@ class SqlStatementRepository extends \TechDivision\Import\Category\Repositories\
                 AND t0.store_id = :store_id',
         SqlStatementKeys::CREATE_SEQUENCE_CATEGORY =>
             'INSERT INTO ${table:sequence_catalog_category} VALUES ()',
-        SqlStatementKeys::CREATE_CATEGORY =>
-            'INSERT
-               INTO ${table:catalog_category_entity}
-                    (attribute_set_id,
-                     entity_id,
-                     created_in,
-                     updated_in,
-                     parent_id,
-                     created_at,
-                     updated_at,
-                     path,
-                     position,
-                     level,
-                     children_count)
-             VALUES (:attribute_set_id,
-                     :entity_id,
-                     :created_in,
-                     :updated_in,
-                     :parent_id,
-                     :created_at,
-                     :updated_at,
-                     :path,
-                     :position,
-                     :level,
-                     :children_count)',
         SqlStatementKeys::UPDATE_CATEGORY =>
             'UPDATE ${table:catalog_category_entity}
-                SET attribute_set_id = :attribute_set_id,
-                    entity_id = :entity_id,
-                    created_in = :created_in,
-                    updated_in = :updated_in,
-                    parent_id = :parent_id,
-                    created_at = :created_at,
-                    updated_at = :updated_at,
-                    path = :path,
-                    position = :position,
-                    level = :level,
-                    children_count = :children_count
-              WHERE entity_id = :entity_id',
+                SET ${column-values:catalog_category_entity}
+              WHERE row_id = :row_id',
         SqlStatementKeys::CREATE_CATEGORY_DATETIME =>
             'INSERT
                INTO ${table:catalog_category_entity_datetime}

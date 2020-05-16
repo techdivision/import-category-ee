@@ -11,10 +11,10 @@
         </service>
 
         <service id="import_category.repository.sql.statement" class="TechDivision\Import\Category\Ee\Repositories\SqlStatementRepository">
-            <argument type="service" id="import.util.sql.compilers"/>
+            <argument type="service" id="import_category.util.sql.compilers"/>
         </service>
         <service id="import_category_ee.repository.sql.statement" class="TechDivision\Import\Category\Ee\Repositories\SqlStatementRepository">
-            <argument type="service" id="import.util.sql.compilers"/>
+            <argument type="service" id="import_category.util.sql.compilers"/>
         </service>
         <service id="import_category.repository.category" class="TechDivision\Import\Category\Ee\Repositories\CategoryRepository">
             <argument type="service" id="connection"/>
@@ -62,6 +62,7 @@
             <argument type="service" id="import.action.url.rewrite"/>
             <argument type="service" id="import_category.assembler.category"/>
             <argument type="service" id="import_category.assembler.category.attribute"/>
+            <argument type="service" id="import_category.loader.raw.entity"/>
         </service>
 
         <service id="import_category_ee.observer.clean.up" class="TechDivision\Import\Category\Ee\Observers\EeCleanUpObserver"/>
