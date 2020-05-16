@@ -7,6 +7,7 @@
 ## Features
 
 * Add #PAC-47
+* Switch to latest techdivision/import-category 19.*
 
 # Version 19.0.2
 
