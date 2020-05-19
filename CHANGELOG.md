@@ -1,3 +1,13 @@
+# Version 20.0.1
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Add optional clean-up-empty-columns array to configuration of add-update operation
+
 # Version 20.0.0
 
 ## Bugfixes
