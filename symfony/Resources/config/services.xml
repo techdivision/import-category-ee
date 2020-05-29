@@ -11,10 +11,10 @@
         </service>
 
         <service id="import_category.repository.sql.statement" class="TechDivision\Import\Category\Ee\Repositories\SqlStatementRepository">
-            <argument type="service" id="import_category.util.sql.compilers"/>
+            <argument type="service" id="import.util.sql.compilers"/>
         </service>
         <service id="import_category_ee.repository.sql.statement" class="TechDivision\Import\Category\Ee\Repositories\SqlStatementRepository">
-            <argument type="service" id="import_category.util.sql.compilers"/>
+            <argument type="service" id="import.util.sql.compilers"/>
         </service>
         <service id="import_category.repository.category" class="TechDivision\Import\Category\Ee\Repositories\CategoryRepository">
             <argument type="service" id="connection"/>
@@ -74,11 +74,10 @@
         </service>
         <service id="import_category_ee.observer.category" class="TechDivision\Import\Category\Ee\Observers\EeCategoryObserver">
             <argument type="service" id="import_category_ee.processor.category.bunch"/>
+            <argument type="service" id="import.observer.dynamic.attribute.loader"/>
+            <argument type="service" id="import_category.entity.merger.composite.category"/>
         </service>
         <service id="import_category_ee.observer.category.path" class="TechDivision\Import\Category\Ee\Observers\EeCategoryPathObserver">
-            <argument type="service" id="import_category_ee.processor.category.bunch"/>
-        </service>
-        <service id="import_category_ee.observer.category.update" class="TechDivision\Import\Category\Ee\Observers\EeCategoryUpdateObserver">
             <argument type="service" id="import_category_ee.processor.category.bunch"/>
         </service>
         <service id="import_category_ee.observer.url.rewrite" class="TechDivision\Import\Category\Ee\Observers\EeUrlRewriteObserver">
@@ -146,7 +145,7 @@
                 <argument id="import_category.observer.file.upload" type="service"/>
             </call>
             <call method="addObserver">
-                <argument id="import_category_ee.observer.category.update" type="service"/>
+                <argument id="import_category_ee.observer.category" type="service"/>
             </call>
             <call method="addObserver">
                 <argument id="import_category_ee.observer.category.attribute.update" type="service"/>

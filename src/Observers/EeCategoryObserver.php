@@ -23,6 +23,7 @@ namespace TechDivision\Import\Category\Ee\Observers;
 use TechDivision\Import\Category\Ee\Utils\MemberNames;
 use TechDivision\Import\Category\Observers\CategoryObserver;
 use TechDivision\Import\Ee\Utils\SqlConstants;
+use TechDivision\Import\Utils\EntityStatus;
 
 /**
  * Observer that create's the category itself for the Magento 2 EE edition.
@@ -44,7 +45,7 @@ class EeCategoryObserver extends CategoryObserver
     use EeCategoryObserverTrait;
 
     /**
-     * Initialize the category with the passed attributes and returns an instance.
+     * Initialize the product with the passed attributes and returns an instance.
      *
      * @param array $attr The category attributes
      *
@@ -53,14 +54,23 @@ class EeCategoryObserver extends CategoryObserver
     protected function initializeCategory(array $attr)
     {
 
-        // initialize the addtional Magento 2 EE product values
-        $additionalAttr = array(
-            MemberNames::ENTITY_ID  => $this->nextIdentifier(),
-            MemberNames::CREATED_IN => 1,
-            MemberNames::UPDATED_IN => SqlConstants::MAX_UNIXTIMESTAMP
-        );
+        // initialize the category attributes
+        $attr = parent::initializeCategory($attr);
 
-        // merge and return the attributes
-        return array_merge($attr, $additionalAttr);
+        // query whether or not, we found a new category
+        if ($attr[EntityStatus::MEMBER_NAME] === EntityStatus::STATUS_CREATE) {
+            // if yes, initialize the additional Magento 2 EE category values
+            $additionalAttr = array(
+                MemberNames::ENTITY_ID  => $this->nextIdentifier(),
+                MemberNames::CREATED_IN => 1,
+                MemberNames::UPDATED_IN => SqlConstants::MAX_UNIXTIMESTAMP
+            );
+
+            // merge and return the attributes
+            $attr = array_merge($attr, $additionalAttr);
+        }
+
+        // otherwise simply return the attributes
+        return $attr;
     }
 }

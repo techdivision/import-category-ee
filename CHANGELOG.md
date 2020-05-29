@@ -1,3 +1,13 @@
+# Version 21.0.0
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Add #PAC-47: Add entity merger implementation to allow fine grained entity merging
+
 # Version 20.0.1
 
 ## Bugfixes
