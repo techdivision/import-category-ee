@@ -1,7 +1,7 @@
 <?php
 
 /**
- * TechDivision\Import\Category\Ee\Repositories\CategoryRepositoryInterface
+ * TechDivision\Import\Category\Ee\Observers\EeUrlRewriteUpdateObserver
  *
  * NOTICE OF LICENSE
  *
@@ -12,34 +12,32 @@
  * PHP version 5
  *
  * @author    Tim Wagner <t.wagner@techdivision.com>
- * @copyright 2016 TechDivision GmbH <info@techdivision.com>
+ * @copyright 2019 TechDivision GmbH <info@techdivision.com>
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      https://github.com/techdivision/import-category-ee
  * @link      http://www.techdivision.com
  */
 
-namespace TechDivision\Import\Category\Ee\Repositories;
+namespace TechDivision\Import\Category\Ee\Observers;
 
-use TechDivision\Import\Repositories\RepositoryInterface;
+use TechDivision\Import\Category\Observers\UrlRewriteUpdateObserver;
 
 /**
- * Interface for repository implementations to load category data for Magento 2 EE.
+ * Observer that creates/updates the category's URL rewrites for Magento 2 EE.
  *
  * @author    Tim Wagner <t.wagner@techdivision.com>
- * @copyright 2016 TechDivision GmbH <info@techdivision.com>
+ * @copyright 2019 TechDivision GmbH <info@techdivision.com>
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      https://github.com/techdivision/import-category-ee
  * @link      http://www.techdivision.com
  */
-interface CategoryRepositoryInterface extends \TechDivision\Import\Category\Repositories\CategoryRepositoryInterface
+class EeUrlRewriteUpdateObserver extends UrlRewriteUpdateObserver
 {
 
     /**
-     * Return's the category with the passed ID.
+     * The trait providing category import functionality.
      *
-     * @param string $id The ID of the category to return
-     *
-     * @return array The category
+     * @var \TechDivision\Import\Category\Ee\Observers\EeCategoryObserverTrait
      */
-    public function load($id);
+    use EeCategoryObserverTrait;
 }

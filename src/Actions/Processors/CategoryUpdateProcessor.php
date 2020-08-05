@@ -37,12 +37,13 @@ class CategoryUpdateProcessor extends \TechDivision\Import\Category\Actions\Proc
     /**
      * Update's the passed row.
      *
-     * @param array       $row  The row to update
-     * @param string|null $name The name of the prepared statement that has to be executed
+     * @param array       $row                  The row to persist
+     * @param string|null $name                 The name of the prepared statement that has to be executed
+     * @param string|null $primaryKeyMemberName The primary key member name of the entity to use
      *
-     * @return string The ID of the updated category
+     * @return string The ID of the updated entity
      */
-    public function execute($row, $name = null)
+    public function execute($row, $name = null, $primaryKeyMemberName = null)
     {
         parent::execute($row, $name);
         return $row[MemberNames::ROW_ID];

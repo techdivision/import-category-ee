@@ -12,7 +12,7 @@
  * PHP version 5
  *
  * @author    Tim Wagner <t.wagner@techdivision.com>
- * @copyright 2016 TechDivision GmbH <info@techdivision.com>
+ * @copyright 2019 TechDivision GmbH <info@techdivision.com>
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      https://github.com/techdivision/import-category-ee
  * @link      http://www.techdivision.com
@@ -27,12 +27,12 @@ use TechDivision\Import\Category\Ee\Utils\SqlStatementKeys;
  * Repository implementation to load category data for Magento 2 EE.
  *
  * @author    Tim Wagner <t.wagner@techdivision.com>
- * @copyright 2016 TechDivision GmbH <info@techdivision.com>
+ * @copyright 2019 TechDivision GmbH <info@techdivision.com>
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      https://github.com/techdivision/import-category-ee
  * @link      http://www.techdivision.com
  */
-class CategoryRepository extends \TechDivision\Import\Category\Repositories\CategoryRepository implements CategoryRepositoryInterface
+class CategoryRepository extends \TechDivision\Import\Category\Repositories\CategoryRepository
 {
 
     /**

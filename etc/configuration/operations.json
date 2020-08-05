@@ -1,0 +1,213 @@
+{
+  "operations": {
+    "ee": {
+      "catalog_category": {
+        "children-count": {
+          "plugins": {
+            "children-count": {
+              "id": "import_category_ee.plugin.children.count"
+            }
+          }
+        },
+        "sort": {
+          "plugins": {
+            "subject": {
+              "id": "import.plugin.subject",
+              "subjects": [
+	            {
+	              "id": "import_category_ee.subject.sortable.bunch",
+                  "create-imported-file": false,
+	              "file-resolver": {
+	                "prefix": "category-import"
+	              },
+	              "listeners": [
+	                {
+	                  "subject.export.start": [
+	                    "import_category.listener.sort.category"
+	                  ]
+	                }
+	              ],
+	              "observers": [
+	                {
+	                  "import": [
+	                    "import_category.observer.category.copy"
+	                  ]
+	                }
+	              ]
+	            }
+              ]
+            }
+          }
+        },
+        "delete": {
+          "plugins": {
+            "subject": {
+              "id": "import.plugin.subject",
+              "subjects": [
+                {
+                  "id": "import_category_ee.subject.bunch",
+                  "file-resolver": {
+                    "prefix": "category-import"
+                  },
+                  "observers": [
+                    {
+                      "import": [
+                        "import_category_ee.observer.clear.category"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        "replace": {
+          "plugins": {
+            "subject": {
+              "id": "import.plugin.subject",
+              "subjects": [
+                {
+                  "id": "import_category_ee.subject.bunch",
+                  "file-resolver": {
+                    "prefix": "category-create"
+                  },
+                  "params": {
+                    "copy-images": false,
+                    "media-directory" : "pub/media/catalog/category",
+                    "images-file-directory" : "var/importexport/media/catalog/category"
+                  },
+                  "observers": [
+                    {
+                      "import": [
+                        "import_category_ee.observer.composite.create.replace"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        "replace.path": {
+          "plugins": {
+            "subject": {
+              "id": "import.plugin.subject",
+              "subjects": [
+                {
+                  "id": "import_category_ee.subject.bunch",
+                  "file-resolver": {
+                    "prefix": "category-path"
+                  },
+                  "observers": [
+                    {
+                      "import": [
+                        "import_category_ee.observer.category.path"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        "replace.url-rewrite": {
+          "plugins": {
+            "subject": {
+              "id": "import.plugin.subject",
+              "subjects": [
+                {
+                  "id": "import_category_ee.subject.bunch",
+                  "file-resolver": {
+                    "prefix": "category-url-rewrite"
+                  },
+                  "observers": [
+                    {
+                      "import": [
+                        "import_category_ee.observer.url.rewrite"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        "add-update": {
+          "plugins": {
+            "subject": {
+              "id": "import.plugin.subject",
+              "subjects": [
+                {
+                  "id": "import_category_ee.subject.bunch",
+                  "file-resolver": {
+                    "prefix": "category-create"
+                  },
+                  "params": {
+                    "copy-images": false,
+                    "media-directory" : "pub/media/catalog/category",
+                    "images-file-directory" : "var/importexport/media/catalog/category",
+                    "clean-up-empty-columns": []
+                  },
+                  "observers": [
+                    {
+                      "import": [
+                        "import_category_ee.observer.composite.add_update"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        "add-update.path": {
+          "plugins": {
+            "subject": {
+              "id": "import.plugin.subject",
+              "subjects": [
+                {
+                  "id": "import_category_ee.subject.bunch",
+                  "file-resolver": {
+                    "prefix": "category-path"
+                  },
+                  "observers": [
+                    {
+                      "import": [
+                        "import_category_ee.observer.category.path"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        "add-update.url-rewrite": {
+          "plugins": {
+            "subject": {
+              "id": "import.plugin.subject",
+              "subjects": [
+                {
+                  "id": "import_category_ee.subject.bunch",
+                  "file-resolver": {
+                    "prefix": "category-url-rewrite"
+                  },
+                  "params": {
+                    "clean-up-url-rewrites": true
+                  },
+                  "observers": [
+                    {
+                      "import": [
+                        "import_category_ee.observer.url.rewrite.update"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

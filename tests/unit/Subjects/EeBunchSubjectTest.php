@@ -20,6 +20,7 @@
 
 namespace TechDivision\Import\Category\Ee\Subjects;
 
+use PHPUnit\Framework\TestCase;
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**
@@ -31,7 +32,7 @@ use Doctrine\Common\Collections\ArrayCollection;
  * @link      https://github.com/techdivision/import-category-ee
  * @link      http://www.techdivision.com
  */
-class EeBunchSubjectTest extends \PHPUnit_Framework_TestCase
+class EeBunchSubjectTest extends TestCase
 {
 
     /**
@@ -46,7 +47,7 @@ class EeBunchSubjectTest extends \PHPUnit_Framework_TestCase
      * This method is called before a test is executed.
      *
      * @return void
-     * @see \PHPUnit_Framework_TestCase::setUp()
+     * @see \PHPUnit\Framework\TestCase::setUp()
      */
     protected function setUp()
     {

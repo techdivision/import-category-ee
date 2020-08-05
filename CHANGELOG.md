@@ -1,3 +1,301 @@
+# Version 21.0.0
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Add #PAC-47: Add entity merger implementation to allow fine grained entity merging
+
+# Version 20.0.1
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Add optional clean-up-empty-columns array to configuration of add-update operation
+
+# Version 20.0.0
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Add #PAC-47
+* Switch to latest techdivision/import-category 19.*
+
+# Version 19.0.2
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Add default configuration for media + images file dirctory
+
+# Version 19.0.1
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Make composer dependencies more generic
+
+# Version 19.0.0
+
+## Bugfixes
+
+* Replace Zend/Filter with new Laminas/Filter library
+
+## Features
+
+* Add techdivision/import-cli-simple#244
+
+# Version 18.0.3
+
+## Bugfixes
+
+* Fixed invalid configuration for children count plugin
+* Switch to latest techdivision/import-ee 15.* and techdivision/import-category 18.*
+
+## Features
+
+* None
+
+# Version 18.0.2
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Extract dev autoloading
+
+# Version 18.0.1
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Activate URL rewrite clean-up functionality by default
+
+# Version 18.0.0
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Add techdivision/import#146
+* Add techdivision/import-cli-simple#216
+* Remove unnecessary identifiers from configuration
+* Switch to latest techdivision/import-ee 14.* and techdivision/import-category 17.*
+
+# Version 17.0.2
+
+## Bugfixes
+
+* Change artefact prefix for category URL rewrites from url-rewrite to category-url-rewrite to avoid conflicts with product import
+
+## Features
+
+* None
+
+# Version 17.0.1
+
+## Bugfixes
+
+* Fixed techdivision/import-category-ee#34
+
+## Features
+
+* None
+
+# Version 17.0.0
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Switch to latest techdivision/import-ee 13.* and techdivision/import-category 16.*
+
+# Version 16.0.0
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Switch to latest techdivision/import-ee 12.* and techdivision/import-category 15.*
+
+# Version 15.0.0
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Switch to latest techdivision/import-ee 11.* and techdivision/import-category 14.*
+
+# Version 14.0.0
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Switch to latest techdivision/import-ee 10.* and techdivision/import-category 13.*
+
+# Version 13.0.0
+
+## Bugfixes
+
+* Fixed multi bunch import issue
+
+## Features
+
+* Switch to latest techdivision/import-ee 9.0.* and techdivision/import-category 12.0.*
+
+# Version 12.0.0
+
+## Bugfixes
+
+* Fixed multi bunch import issue
+
+## Features
+
+* Switch to latest techdivision/import-category 11.0.*
+
+# Version 11.0.0
+
+## Bugfixes
+
+* Fixed techdivision/import#147
+
+## Features
+
+* Switch to latest techdivision/import-category 10.0.*
+
+# Version 10.0.0
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Switch to latest techdivision/import-category 9.0.* and techdivision/import-ee 7.0.* version as dependency
+
+# Version 9.0.1
+
+## Bugfixes
+
+* Update default configuration files with listeners
+
+## Features
+
+* None
+
+# Version 9.0.0
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Add composite observers to minimize configuration complexity
+* Replace DI specific ActionInterfaces with generic ActionInterface in EeCategoryBunchProcessor
+* Switch to latest techdivision/import-category 8.0.* and techdivision/import-ee 6.0.* version as dependency
+
+# Version 8.0.0
+
+## Bugfixes
+
+* Fixed techdivision/import-category #55
+* Fixed techdivision/import-category #56
+
+## Features
+
+* None
+
+# Version 7.0.0
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Switch to latest techdivision/import 6.0.* version as dependency
+
+# Version 6.0.0
+
+## Bugfixes
+
+* Add missing paramter for EeCategoryBunchProcessor::__construct() method
+
+## Features
+
+* None
+
+# Version 5.0.0
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Switch to latest techdivision/import 6.0.* version as dependency
+
+# Version 4.0.0
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Switch to latest techdivision/import-category + techdivision/import-ee 4.0.* version as dependency
+
+# Version 3.0.0
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Switch to latest techdivision/import-category ~3.0 version as dependency
+
+# Version 2.0.0
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Switch to techdivision/import version ~2.0
+
 # Version 1.0.0
 
 ## Bugfixes
