@@ -9,6 +9,28 @@
             }
           }
         },
+        "position": {
+          "plugins": {
+            "subject": {
+              "id": "import.plugin.subject",
+              "subjects": [
+                {
+                  "id": "import_category_ee.subject.bunch",
+                  "file-resolver": {
+                    "prefix": "category-position"
+                  },
+                  "observers": [
+                    {
+                      "import": [
+                        "import_category_ee.observer.category"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        },
         "sort": {
           "plugins": {
             "subject": {
@@ -17,6 +39,12 @@
 	            {
 	              "id": "import_category_ee.subject.sortable.bunch",
                   "create-imported-file": false,
+                  "import-adapter": {
+                    "id": "import.adapter.import.csv.factory",
+                    "serializer": {
+                      "id": "import.serializer.factory.csv.value"
+                    }
+                  },
 	              "file-resolver": {
 	                "prefix": "category-import"
 	              },
