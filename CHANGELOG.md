@@ -1,3 +1,13 @@
+# Version 21.0.1
+
+## Bugfixes
+
+* Fixed techdivision/import-category#64
+
+## Features
+
+* None
+
 # Version 21.0.0
 
 ## Bugfixes
