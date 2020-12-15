@@ -182,17 +182,4 @@ class EeBunchSubject extends BunchSubject
     {
         return MemberNames::ROW_ID;
     }
-
-    /**
-     * Return's TRUE, if the passed URL key varchar value IS related with the actual PK.
-     *
-     * @param array $categoryVarcharAttribute The varchar value to check
-     *
-     * @return boolean TRUE if the URL key is related, else FALSE
-     */
-    public function isUrlKeyOf(array $categoryVarcharAttribute)
-    {
-        return ((integer) $categoryVarcharAttribute[MemberNames::ROW_ID] === (integer) $this->getLastRowId()) &&
-               ((integer) $categoryVarcharAttribute[MemberNames::STORE_ID] === (integer) $this->getRowStoreId(StoreViewCodes::ADMIN));
-    }
 }

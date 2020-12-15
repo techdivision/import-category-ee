@@ -6,7 +6,6 @@
     <services>
 
         <service id="import_category.util.url.key" class="TechDivision\Import\Utils\UrlKeyUtil">
-            <argument type="service" id="configuration"/>
             <argument type="service" id="import_category_ee.processor.category.bunch"/>
         </service>
 
