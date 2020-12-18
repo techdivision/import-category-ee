@@ -20,6 +20,8 @@
 
 namespace TechDivision\Import\Category\Ee\Observers;
 
+use TechDivision\Import\Category\Ee\Utils\MemberNames;
+
 /**
  * Observer that extracts the URL key/path from the category path and
  * adds them as two new columns with the their values for Magento 2 EE.
@@ -49,6 +51,11 @@ class EeUrlKeyAndPathObserver extends \TechDivision\Import\Category\Observers\Ur
      */
     protected function setIds(array $category)
     {
-        $this->setLastRowId(isset($category[$this->getPkMemberName()]) ? $category[$this->getPkMemberName()] : null);
+
+        // pass the category to the parent method
+        parent::setIds($category);
+
+        // temporarily persist the row ID
+        $this->setLastRowId(isset($category[MemberNames::ROW_ID]) ? $category[MemberNames::ROW_ID] : null);
     }
 }
