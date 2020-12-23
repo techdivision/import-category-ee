@@ -51,4 +51,14 @@ class EeUrlKeyAndPathObserver extends \TechDivision\Import\Category\Observers\Ur
     {
         $this->setLastRowId(isset($category[$this->getPkMemberName()]) ? $category[$this->getPkMemberName()] : null);
     }
+
+    /**
+     * Return's the PK to of the product.
+     *
+     * @return integer The PK to create the relation with
+     */
+    protected function getPrimaryKey()
+    {
+        return $this->getLastRowId();
+    }
 }
