@@ -20,8 +20,8 @@
 
 namespace TechDivision\Import\Category\Ee\Actions;
 
-use TechDivision\Import\Utils\EntityStatus;
-use TechDivision\Import\Actions\AbstractAction;
+use TechDivision\Import\Dbal\Utils\EntityStatus;
+use TechDivision\Import\Dbal\Actions\AbstractAction;
 
 /**
  * An action implementation that provides CRUD functionality for EE category sequence block.
