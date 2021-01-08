@@ -1,4 +1,4 @@
-name: Pacemaker Import Category EE Library
+name: techdivision/import-category-ee
 
 on:
   push:
