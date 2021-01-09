@@ -20,7 +20,6 @@
 
 namespace TechDivision\Import\Category\Ee\Subjects;
 
-use TechDivision\Import\Utils\StoreViewCodes;
 use TechDivision\Import\Category\Utils\RegistryKeys;
 use TechDivision\Import\Category\Subjects\BunchSubject;
 use TechDivision\Import\Category\Ee\Utils\MemberNames;
