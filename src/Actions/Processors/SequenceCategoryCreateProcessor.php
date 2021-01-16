@@ -21,7 +21,7 @@
 namespace TechDivision\Import\Category\Ee\Actions\Processors;
 
 use TechDivision\Import\Category\Ee\Utils\SqlStatementKeys;
-use TechDivision\Import\Actions\Processors\AbstractCreateProcessor;
+use TechDivision\Import\Dbal\Collection\Actions\Processors\AbstractBaseProcessor;
 
 /**
  * The sequence category create processor implementation.
@@ -32,14 +32,13 @@ use TechDivision\Import\Actions\Processors\AbstractCreateProcessor;
  * @link      https://github.com/techdivision/import-category-ee
  * @link      http://www.techdivision.com
  */
-class SequenceCategoryCreateProcessor extends AbstractCreateProcessor
+class SequenceCategoryCreateProcessor extends AbstractBaseProcessor
 {
 
     /**
      * Return's the array with the SQL statements that has to be prepared.
      *
      * @return array The SQL statements to be prepared
-     * @see \TechDivision\Import\Actions\Processors\AbstractBaseProcessor::getStatements()
      */
     protected function getStatements()
     {

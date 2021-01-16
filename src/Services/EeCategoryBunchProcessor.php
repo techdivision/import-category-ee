@@ -21,8 +21,8 @@
 namespace TechDivision\Import\Category\Ee\Services;
 
 use TechDivision\Import\Loaders\LoaderInterface;
-use TechDivision\Import\Actions\ActionInterface;
-use TechDivision\Import\Connection\ConnectionInterface;
+use TechDivision\Import\Dbal\Actions\ActionInterface;
+use TechDivision\Import\Dbal\Connection\ConnectionInterface;
 use TechDivision\Import\Assembler\CategoryAssemblerInterface;
 use TechDivision\Import\Repositories\UrlRewriteRepositoryInterface;
 use TechDivision\Import\Repositories\EavAttributeRepositoryInterface;
@@ -60,7 +60,7 @@ class EeCategoryBunchProcessor extends CategoryBunchProcessor implements EeCateg
     /**
      * Initialize the processor with the necessary assembler and repository instances.
      *
-     * @param \TechDivision\Import\Connection\ConnectionInterface                            $connection                        The connection to use
+     * @param \TechDivision\Import\Dbal\Connection\ConnectionInterface                       $connection                        The connection to use
      * @param \TechDivision\Import\Category\Ee\Actions\SequenceCategoryActionInterface       $sequenceCategoryAction            The sequence category action to use
      * @param \TechDivision\Import\Category\Repositories\CategoryRepositoryInterface         $categoryRepository                The category repository to use
      * @param \TechDivision\Import\Category\Repositories\CategoryDatetimeRepositoryInterface $categoryDatetimeRepository        The category datetime repository to use
@@ -72,13 +72,13 @@ class EeCategoryBunchProcessor extends CategoryBunchProcessor implements EeCateg
      * @param \TechDivision\Import\Repositories\EavAttributeRepositoryInterface              $eavAttributeRepository            The EAV attribute repository to use
      * @param \TechDivision\Import\Repositories\UrlRewriteRepositoryInterface                $urlRewriteRepository              The URL rewrite repository to use
      * @param \TechDivision\Import\Repositories\EavEntityTypeRepositoryInterface             $eavEntityTypeRepository           The EAV entity type repository to use
-     * @param \TechDivision\Import\Actions\ActionInterface                                   $categoryDatetimeAction            The category datetime action to use
-     * @param \TechDivision\Import\Actions\ActionInterface                                   $categoryDecimalAction             The category decimal action to use
-     * @param \TechDivision\Import\Actions\ActionInterface                                   $categoryIntAction                 The category integer action to use
-     * @param \TechDivision\Import\Actions\ActionInterface                                   $categoryAction                    The category action to use
-     * @param \TechDivision\Import\Actions\ActionInterface                                   $categoryTextAction                The category text action to use
-     * @param \TechDivision\Import\Actions\ActionInterface                                   $categoryVarcharAction             The category varchar action to use
-     * @param \TechDivision\Import\Actions\ActionInterface                                   $urlRewriteAction                  The URL rewrite action to use
+     * @param \TechDivision\Import\Dbal\Actions\ActionInterface                              $categoryDatetimeAction            The category datetime action to use
+     * @param \TechDivision\Import\Dbal\Actions\ActionInterface                              $categoryDecimalAction             The category decimal action to use
+     * @param \TechDivision\Import\Dbal\Actions\ActionInterface                              $categoryIntAction                 The category integer action to use
+     * @param \TechDivision\Import\Dbal\Actions\ActionInterface                              $categoryAction                    The category action to use
+     * @param \TechDivision\Import\Dbal\Actions\ActionInterface                              $categoryTextAction                The category text action to use
+     * @param \TechDivision\Import\Dbal\Actions\ActionInterface                              $categoryVarcharAction             The category varchar action to use
+     * @param \TechDivision\Import\Dbal\Actions\ActionInterface                              $urlRewriteAction                  The URL rewrite action to use
      * @param \TechDivision\Import\Assembler\CategoryAssemblerInterface                      $categoryAssembler                 The category assembler to use
      * @param \TechDivision\Import\Category\Assembler\CategoryAttributeAssemblerInterface    $categoryAttributeAssembler        The assembler to load the category attributes with
      * @param \TechDivision\Import\Loaders\LoaderInterface                                   $rawEntityLoader                   The raw entity loader instance

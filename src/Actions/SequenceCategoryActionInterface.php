@@ -20,7 +20,7 @@
 
 namespace TechDivision\Import\Category\Ee\Actions;
 
-use TechDivision\Import\Actions\ActionInterface;
+use TechDivision\Import\Dbal\Actions\ActionInterface;
 
 /**
  * Interface for action implementations that provides CRUD functionality for EE category sequence block.

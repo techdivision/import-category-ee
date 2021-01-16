@@ -6,8 +6,9 @@
     <services>
 
         <service id="import_category.util.url.key" class="TechDivision\Import\Utils\UrlKeyUtil">
-            <argument type="service" id="configuration"/>
             <argument type="service" id="import_category_ee.processor.category.bunch"/>
+            <argument type="service" id="import.loader.core.config.data"/>
+            <argument type="service" id="import.loader.store.view.id"/>
         </service>
 
         <service id="import_category.repository.sql.statement" class="TechDivision\Import\Category\Ee\Repositories\SqlStatementRepository">
@@ -21,10 +22,6 @@
             <argument type="service" id="import_category_ee.repository.sql.statement"/>
         </service>
 
-        <service id="import_category_ee.action.processor.category.update" class="TechDivision\Import\Category\Ee\Actions\Processors\CategoryUpdateProcessor">
-            <argument type="service" id="connection"/>
-            <argument type="service" id="import_category_ee.repository.sql.statement"/>
-        </service>
         <service id="import_category_ee.action.processor.sequence.category.create" class="TechDivision\Import\Category\Ee\Actions\Processors\SequenceCategoryCreateProcessor">
             <argument type="service" id="connection"/>
             <argument type="service" id="import_category_ee.repository.sql.statement"/>
@@ -33,11 +30,11 @@
         <service id="import_category_ee.action.sequence.category" class="TechDivision\Import\Category\Ee\Actions\SequenceCategoryAction">
             <argument type="service" id="import_category_ee.action.processor.sequence.category.create"/>
         </service>
-
-        <service id="import_category_ee.action.category" class="TechDivision\Import\Actions\GenericIdentifierAction">
+        <service id="import_category_ee.action.category" class="TechDivision\Import\Dbal\Collection\Actions\GenericIdentifierAction">
             <argument type="service" id="import_category.action.processor.category.create"/>
-            <argument type="service" id="import_category_ee.action.processor.category.update"/>
+            <argument type="service" id="import_category.action.processor.category.update"/>
             <argument type="service" id="import_category.action.processor.category.delete"/>
+            <argument type="constant">TechDivision\Import\Category\Ee\Utils\MemberNames::ROW_ID</argument>
         </service>
 
         <service id="import_category_ee.processor.category.bunch" class="TechDivision\Import\Category\Ee\Services\EeCategoryBunchProcessor">
@@ -59,7 +56,7 @@
             <argument type="service" id="import_category_ee.action.category"/>
             <argument type="service" id="import_category.action.category.text"/>
             <argument type="service" id="import_category.action.category.varchar"/>
-            <argument type="service" id="import.action.url.rewrite"/>
+            <argument type="service" id="import_category.action.url.rewrite"/>
             <argument type="service" id="import_category.assembler.category"/>
             <argument type="service" id="import_category.assembler.category.attribute"/>
             <argument type="service" id="import_category.loader.raw.entity"/>
@@ -80,12 +77,6 @@
         <service id="import_category_ee.observer.category.path" class="TechDivision\Import\Category\Ee\Observers\EeCategoryPathObserver">
             <argument type="service" id="import_category_ee.processor.category.bunch"/>
         </service>
-        <service id="import_category_ee.observer.url.rewrite" class="TechDivision\Import\Category\Ee\Observers\EeUrlRewriteObserver">
-            <argument type="service" id="import_category_ee.processor.category.bunch"/>
-        </service>
-        <service id="import_category_ee.observer.url.rewrite.update" class="TechDivision\Import\Category\Ee\Observers\EeUrlRewriteUpdateObserver">
-            <argument type="service" id="import_category_ee.processor.category.bunch"/>
-        </service>
         <service id="import_category_ee.observer.category.url.rewrite" class="TechDivision\Import\Category\Ee\Observers\EeCategoryUrlRewriteObserver">
             <argument type="service" id="import_category_ee.processor.category.bunch"/>
         </service>
@@ -96,6 +87,13 @@
             <argument type="service" id="import_category_ee.processor.category.bunch"/>
             <argument type="service" id="import_category.filter.convert.literal.url"/>
             <argument type="service" id="import_category.util.url.key"/>
+            <argument type="service" id="import.generator.reverse.sequence"/>
+        </service>
+        <service id="import_category_ee.observer.url.rewrite" class="TechDivision\Import\Category\Ee\Observers\EeUrlRewriteObserver">
+            <argument type="service" id="import_category.processor.url.rewrite"/>
+        </service>
+        <service id="import_category_ee.observer.url.rewrite.update" class="TechDivision\Import\Category\Ee\Observers\EeUrlRewriteUpdateObserver">
+            <argument type="service" id="import_category.processor.url.rewrite"/>
         </service>
 
         <!--

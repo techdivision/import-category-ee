@@ -20,7 +20,6 @@
 
 namespace TechDivision\Import\Category\Ee\Subjects;
 
-use TechDivision\Import\Utils\StoreViewCodes;
 use TechDivision\Import\Category\Utils\RegistryKeys;
 use TechDivision\Import\Category\Subjects\BunchSubject;
 use TechDivision\Import\Category\Ee\Utils\MemberNames;
@@ -181,18 +180,5 @@ class EeBunchSubject extends BunchSubject
     protected function getPrimaryKeyMemberName()
     {
         return MemberNames::ROW_ID;
-    }
-
-    /**
-     * Return's TRUE, if the passed URL key varchar value IS related with the actual PK.
-     *
-     * @param array $categoryVarcharAttribute The varchar value to check
-     *
-     * @return boolean TRUE if the URL key is related, else FALSE
-     */
-    public function isUrlKeyOf(array $categoryVarcharAttribute)
-    {
-        return ((integer) $categoryVarcharAttribute[MemberNames::ROW_ID] === (integer) $this->getLastRowId()) &&
-               ((integer) $categoryVarcharAttribute[MemberNames::STORE_ID] === (integer) $this->getRowStoreId(StoreViewCodes::ADMIN));
     }
 }
