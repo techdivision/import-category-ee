@@ -80,7 +80,7 @@
                   "observers": [
                     {
                       "import": [
-                        "import_category_ee.observer.clear.category"
+                        "import_category_ee.observer.composite.base.delete"
                       ]
                     }
                   ]
