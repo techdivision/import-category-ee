@@ -73,11 +73,9 @@
             <argument type="service" id="import_category_ee.processor.category.bunch"/>
             <argument type="service" id="import.observer.dynamic.attribute.loader"/>
             <argument type="service" id="import_category.entity.merger.composite.category"/>
+            <argument type="service" id="import.utils.category.path"/>
         </service>
         <service id="import_category_ee.observer.category.path" class="TechDivision\Import\Category\Ee\Observers\EeCategoryPathObserver">
-            <argument type="service" id="import_category_ee.processor.category.bunch"/>
-        </service>
-        <service id="import_category_ee.observer.category.url.rewrite" class="TechDivision\Import\Category\Ee\Observers\EeCategoryUrlRewriteObserver">
             <argument type="service" id="import_category_ee.processor.category.bunch"/>
         </service>
         <service id="import_category_ee.observer.clear.category" class="TechDivision\Import\Category\Ee\Observers\EeClearCategoryObserver">
