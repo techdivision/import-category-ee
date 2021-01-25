@@ -73,7 +73,7 @@
             <argument type="service" id="import_category_ee.processor.category.bunch"/>
             <argument type="service" id="import.observer.dynamic.attribute.loader"/>
             <argument type="service" id="import_category.entity.merger.composite.category"/>
-            <argument type="service" id="import.utils.category.path"/>
+            <argument type="service" id="import.serializer.factory.csv.category"/>
         </service>
         <service id="import_category_ee.observer.category.path" class="TechDivision\Import\Category\Ee\Observers\EeCategoryPathObserver">
             <argument type="service" id="import_category_ee.processor.category.bunch"/>
@@ -102,6 +102,9 @@
          |-->
         <service id="import_category_ee.observer.composite.base.delete" class="TechDivision\Import\Observers\GenericCompositeObserver">
             <call method="addObserver">
+                <argument id="import_category.observer.normalize.path" type="service"/>
+            </call>
+            <call method="addObserver">
                 <argument id="import_category_ee.observer.clear.url.rewrite" type="service"/>
             </call>
             <call method="addObserver">
@@ -113,6 +116,9 @@
          | The DI configuration for the composite observers of the category create replace operation.
          |-->
         <service id="import_category_ee.observer.composite.create.replace" class="TechDivision\Import\Observers\GenericCompositeObserver">
+            <call method="addObserver">
+                <argument id="import_category.observer.normalize.path" type="service"/>
+            </call>
             <call method="addObserver">
                 <argument id="import_category_ee.observer.url.key.and.path" type="service"/>
             </call>
@@ -143,6 +149,9 @@
          | The DI configuration for the composite observers of the category add-update operation.
          |-->
         <service id="import_category_ee.observer.composite.add_update" class="TechDivision\Import\Observers\GenericCompositeObserver">
+            <call method="addObserver">
+                <argument id="import_category.observer.normalize.path" type="service"/>
+            </call>
             <call method="addObserver">
                 <argument id="import_category_ee.observer.url.key.and.path" type="service"/>
             </call>
