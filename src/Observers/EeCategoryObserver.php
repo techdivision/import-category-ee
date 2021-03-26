@@ -58,7 +58,7 @@ class EeCategoryObserver extends CategoryObserver
         $attr = parent::initializeCategory($attr);
 
         // query whether or not, we found a new category
-        if ($attr[EntityStatus::MEMBER_NAME] === EntityStatus::STATUS_CREATE) {
+        if (isset($attr[EntityStatus::MEMBER_NAME]) && $attr[EntityStatus::MEMBER_NAME] === EntityStatus::STATUS_CREATE) {
             // if yes, initialize the additional Magento 2 EE category values
             $additionalAttr = array(
                 MemberNames::ENTITY_ID  => $this->nextIdentifier(),
