@@ -1,3 +1,13 @@
+# Version 21.0.4
+
+## Bugfixes
+
+* Fix php 7.4 notice
+
+## Features
+
+* Prepare generic workflow and defined deprecated classes
+
 # Version 21.0.3
 
 ## Bugfixes
