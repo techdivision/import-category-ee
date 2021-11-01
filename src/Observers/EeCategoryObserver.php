@@ -17,7 +17,7 @@ namespace TechDivision\Import\Category\Ee\Observers;
 use TechDivision\Import\Category\Ee\Utils\MemberNames;
 use TechDivision\Import\Category\Observers\CategoryObserver;
 use TechDivision\Import\Ee\Utils\SqlConstants;
-use TechDivision\Import\Utils\EntityStatus;
+use TechDivision\Import\Dbal\Utils\EntityStatus;
 
 /**
  * Observer that create's the category itself for the Magento 2 EE edition.
