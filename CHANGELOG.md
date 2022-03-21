@@ -17,6 +17,7 @@
 * Add functionality to clear URL rewrites when categories have been deleted
 * Add #PAC-326: Cross-entity import of URLs (rewrites + redirects)  
 * Add #PAC-57: Deleting dedicated attribute values via import by setting a configurable value
+* PAC-541: Update composer with php Version ">=^7.3"
 
 # Version 21.0.3
 
