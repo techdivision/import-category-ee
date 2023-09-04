@@ -1,3 +1,8 @@
+# Version 22.0.1
+
+## Bugfixes
+* Fixed #METSUP-32: Rewrites for the multistore store views are updated unintentionally
+
 # Version 22.0.0
 
 ## Bugfixes
