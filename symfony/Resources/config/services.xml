@@ -61,6 +61,7 @@
             <argument type="service" id="import_category.assembler.category"/>
             <argument type="service" id="import_category.assembler.category.attribute"/>
             <argument type="service" id="import_category.loader.raw.entity"/>
+            <argument type="service" id="import.util.primary.key"/>
         </service>
 
         <service id="import_category_ee.observer.clean.up" class="TechDivision\Import\Category\Ee\Observers\EeCleanUpObserver"/>

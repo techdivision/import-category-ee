@@ -14,6 +14,7 @@
 
 namespace TechDivision\Import\Category\Ee\Services;
 
+use TechDivision\Import\Dbal\Utils\PrimaryKeyUtilInterface;
 use TechDivision\Import\Loaders\LoaderInterface;
 use TechDivision\Import\Dbal\Actions\ActionInterface;
 use TechDivision\Import\Dbal\Connection\ConnectionInterface;
@@ -76,6 +77,7 @@ class EeCategoryBunchProcessor extends CategoryBunchProcessor implements EeCateg
      * @param \TechDivision\Import\Assembler\CategoryAssemblerInterface                      $categoryAssembler                 The category assembler to use
      * @param \TechDivision\Import\Category\Assembler\CategoryAttributeAssemblerInterface    $categoryAttributeAssembler        The assembler to load the category attributes with
      * @param \TechDivision\Import\Loaders\LoaderInterface                                   $rawEntityLoader                   The raw entity loader instance
+     * @param \TechDivision\Import\Dbal\Utils\PrimaryKeyUtilInterface                        $primaryKeyUtil                    The primary key util instance
      */
     public function __construct(
         ConnectionInterface $connection,
@@ -99,7 +101,8 @@ class EeCategoryBunchProcessor extends CategoryBunchProcessor implements EeCateg
         ActionInterface $urlRewriteAction,
         CategoryAssemblerInterface $categoryAssembler,
         CategoryAttributeAssemblerInterface $categoryAttributeAssembler,
-        LoaderInterface $rawEntityLoader
+        LoaderInterface $rawEntityLoader,
+        PrimaryKeyUtilInterface $primaryKeyUtil
     ) {
 
         // set the sequence category action
@@ -127,7 +130,8 @@ class EeCategoryBunchProcessor extends CategoryBunchProcessor implements EeCateg
             $urlRewriteAction,
             $categoryAssembler,
             $categoryAttributeAssembler,
-            $rawEntityLoader
+            $rawEntityLoader,
+            $primaryKeyUtil
         );
     }
 
